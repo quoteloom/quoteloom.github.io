@@ -2,7 +2,6 @@
 
 Static landing site for Quoteloom (GitHub Pages, user site). No build step, no tracking.
 
-Before launch: replace the placeholder `__GUMROAD_URL__` (in `index.html`) with the live Gumroad product URL:
-`sed -i 's#__GUMROAD_URL__#https://REAL-GUMROAD-LINK#g' index.html`
+Buy buttons show a disabled "Coming soon" state until a product link is set in `assets/config.js` (`gumroadUrl`), the single config spot.
 
 Tests: `node tests/calc.test.js` (mini calculator math).

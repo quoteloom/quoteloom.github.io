@@ -31,3 +31,5 @@ h2{color:var(--navy);font-size:1.5rem;margin-top:0}
 .note{font-size:.9rem;color:var(--muted)}
 footer{border-top:1px solid var(--line);padding:24px 0;font-size:.9rem;color:var(--muted)}
 @media (min-width:760px){.hero .wrap{grid-template-columns:1.05fr 1fr;align-items:center}.grid{grid-template-columns:1fr 1fr}.fields{grid-template-columns:repeat(3,1fr)}.results{grid-template-columns:repeat(5,1fr)}}
+.cta.disabled{background:#9fb3c4;color:#24384b;cursor:not-allowed}
+.cta{border:0;font:inherit;font-weight:700}
