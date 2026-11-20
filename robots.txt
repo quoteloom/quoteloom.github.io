@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://quoteloom.github.io/sitemap.xml
