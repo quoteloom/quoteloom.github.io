@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Free Airbnb / Short-Term Rental Profit Calculator | Quoteloom</title>
+<meta name="description" content="Free Airbnb and short-term rental profit calculator: enter nightly rate, occupancy, platform fees, cleaning costs and housing payment to see cash flow, cash-on-cash return and break-even occupancy. No signup, runs in your browser.">
+<link rel="canonical" href="https://quoteloom.github.io/airbnb-profit-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free Airbnb / Short-Term Rental Profit Calculator">
+<meta property="og:description" content="Nightly rate, occupancy, fees and housing costs in, cash flow, cash-on-cash and break-even occupancy out. No signup.">
+<meta property="og:url" content="https://quoteloom.github.io/airbnb-profit-calculator/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-airbnb-profit.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/airbnb.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I estimate Airbnb or short-term rental profit?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the nightly rate and occupancy you actually expect, not a best-case month. Multiply occupied nights by the rate, add cleaning fees you charge guests, then subtract platform fees, lodging tax you remit, cleaning and supply costs, and your monthly housing payment, utilities and other fixed costs. The result is estimated cash flow, not a guarantee."}}, {"@type": "Question", "name": "What occupancy should I assume?", "acceptedAnswer": {"@type": "Answer", "text": "There is no typical rate that works everywhere. This page ships with an example occupancy of 62% and a $165 average nightly rate so the math is visible. Use your own figures, and remember occupancy and rates usually change by month \u2014 the spreadsheet lets you enter all 12 months."}}, {"@type": "Question", "name": "Does this include Airbnb or Vrbo fees and lodging tax?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, as percentages you enter. The example uses 15% for platform and payment fees on gross booking (lodging plus the guest cleaning fee) and 6% lodging tax on lodging revenue only, assuming you remit it. Replace both with the rates that apply to your listing and jurisdiction."}}, {"@type": "Question", "name": "What is on this page versus the spreadsheet?", "acceptedAnswer": {"@type": "Answer", "text": "This free calculator uses one average nightly rate and one occupancy for a 365-day year, and you type the monthly housing payment yourself. The Quoteloom spreadsheet adds month-by-month seasonality, two scenarios side by side, own-versus-lease (rental arbitrage), a calculated mortgage payment, furnishing amortization and tax or maintenance reserves."}}, {"@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is an educational estimate that uses only the numbers you enter, plus the example figures shown on the page. It is not financial, investment, tax or legal advice, and it is not a market survey. Platform fees, occupancy taxes and local short-term-rental rules change. Verify every number and consult qualified professionals before you buy, lease or list a property."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><a href="/#free-calculators" style="color:#fff">Free calculators</a></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <h1>Free Airbnb / short-term rental profit calculator</h1>
+ <p>Enter an average nightly rate, occupancy, fees and your monthly housing payment to estimate annual cash flow, cash-on-cash return and the occupancy you would need to break even. No signup; everything runs in your browser and nothing is stored.</p>
+</div></div>
+
+<section><div class="wrap">
+ <div class="calc">
+  <div class="fields">
+   <label>Average nightly rate ($)<input id="rate" type="number" inputmode="decimal" value="165" min="0" step="5"></label>
+   <label>Occupancy (% of nights)<input id="occ" type="number" inputmode="decimal" value="62" min="0" max="100" step="1"></label>
+   <label>Average length of stay (nights)<input id="stay" type="number" inputmode="decimal" value="3.5" min="0" step="0.5"></label>
+   <label>Cleaning fee charged to the guest ($)<input id="cleanFee" type="number" inputmode="decimal" value="125" min="0" step="5"></label>
+   <label>Platform + payment fees (% of gross)<input id="platform" type="number" inputmode="decimal" value="15" min="0" step="0.5"></label>
+   <label>Lodging tax you remit (% of lodging)<input id="lodgingTax" type="number" inputmode="decimal" value="6" min="0" step="0.25"></label>
+   <label>Cleaning cost you pay (per stay) ($)<input id="cleanCost" type="number" inputmode="decimal" value="85" min="0" step="5"></label>
+   <label>Supplies per stay ($)<input id="supplies" type="number" inputmode="decimal" value="12" min="0" step="1"></label>
+   <label>Co-host / manager fee (% of net)<input id="mgmt" type="number" inputmode="decimal" value="0" min="0" step="1"></label>
+   <label>Monthly housing payment ($)<input id="housing" type="number" inputmode="decimal" value="1362" min="0" step="10"></label>
+   <label>Utilities per month ($)<input id="util" type="number" inputmode="decimal" value="180" min="0" step="5"></label>
+   <label>Other fixed costs per month ($)<input id="other" type="number" inputmode="decimal" value="149" min="0" step="5"></label>
+   <label>Property tax + insurance (per year) ($)<input id="annualFixed" type="number" inputmode="decimal" value="4400" min="0" step="50"></label>
+   <label>Cash invested ($)<input id="invested" type="number" inputmode="decimal" value="92000" min="0" step="1000"></label>
+  </div>
+  <div class="results" aria-live="polite">
+   <div><span>Occupied nights</span><strong id="o-nights">-</strong></div>
+   <div><span>Gross booking</span><strong id="o-gross">-</strong></div>
+   <div><span>Net booking</span><strong id="o-net">-</strong></div>
+   <div><span>Variable contribution</span><strong id="o-var">-</strong></div>
+   <div><span>Fixed annual costs</span><strong id="o-fixed">-</strong></div>
+   <div><span>Cash flow (annual)</span><strong id="o-cf">-</strong></div>
+   <div><span>Cash flow (monthly avg.)</span><strong id="o-cfm">-</strong></div>
+   <div><span>Cash-on-cash</span><strong id="o-coc">-</strong></div>
+   <div><span>Break-even occupancy</span><strong id="o-beo">-</strong></div>
+  </div>
+  <p class="note">This page uses one average rate and occupancy over 365 days. Housing payment is the mortgage or rent you type in; tax, insurance and other fixed costs are annualized as entered. Example values shown; use your own. Month-by-month seasonality is in the spreadsheet.</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>How it's calculated</h2>
+ <ul>
+  <li><b>Occupied nights</b> = 365 &times; occupancy. <b>Stays</b> = occupied nights / average length of stay (0 if the stay length is 0).</li>
+  <li><b>Lodging revenue</b> = occupied nights &times; nightly rate. <b>Cleaning-fee revenue</b> = stays &times; guest cleaning fee. <b>Gross booking</b> = lodging + cleaning-fee revenue.</li>
+  <li><b>Platform fees</b> = gross booking &times; the platform percentage. <b>Lodging tax remitted</b> = lodging revenue &times; the lodging-tax percentage. <b>Net booking</b> = gross &minus; platform fees &minus; lodging tax.</li>
+  <li><b>Variable contribution</b> = net booking &minus; (stays &times; (cleaning cost + supplies)) &minus; (net booking &times; co-host percentage).</li>
+  <li><b>Fixed annual costs</b> = 12 &times; (housing payment + utilities + other monthly costs) + annual property tax and insurance.</li>
+  <li><b>Cash flow</b> = variable contribution &minus; fixed annual costs. <b>Cash-on-cash</b> = annual cash flow / cash invested (n/a if cash invested is $0).</li>
+  <li><b>Break-even occupancy</b> = fixed annual costs / variable contribution at 100% occupancy (same rate and fees). If that contribution is $0 or less, the result is “Not reachable.”</li>
+ </ul>
+ <p class="note"><b>Not financial advice.</b> This is an educational estimate based only on what you enter. It ignores income taxes, depreciation, selling costs and changes in platform or tax rules. Verify numbers and talk to qualified professionals before you buy, lease or list a property.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Need month-by-month seasonality or a rental-arbitrage comparison?</h2>
+ <p>The Quoteloom <b>Airbnb / Short-Term Rental Profit Calculator</b> spreadsheet lets you enter a nightly rate and occupancy for each month, compare an owned property with a mortgage against a lease (rental arbitrage) side by side, and see cash flow, break-even occupancy, cash-on-cash return and furnishing amortization.</p>
+ <button class="cta disabled" type="button" disabled data-buy="airbnb-profit" data-buy-label="Get the Airbnb profit calculator: US$15">Coming soon: US$15</button>
+ <p><a href="/#airbnb-profit">More about the spreadsheet</a></p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Frequently asked questions</h2>
+ <div class="faq">
+  <h3>How do I estimate Airbnb or short-term rental profit?</h3>
+  <p>Start with the nightly rate and occupancy you actually expect, not a best-case month. Multiply occupied nights by the rate, add cleaning fees you charge guests, then subtract platform fees, lodging tax you remit, cleaning and supply costs, and your monthly housing payment, utilities and other fixed costs. The result is estimated cash flow, not a guarantee.</p>
+  <h3>What occupancy should I assume?</h3>
+  <p>There is no typical rate that works everywhere. This page ships with an example occupancy of 62% and a $165 average nightly rate so the math is visible. Use your own figures, and remember occupancy and rates usually change by month — the spreadsheet lets you enter all 12 months.</p>
+  <h3>Does this include Airbnb or Vrbo fees and lodging tax?</h3>
+  <p>Yes, as percentages you enter. The example uses 15% for platform and payment fees on gross booking (lodging plus the guest cleaning fee) and 6% lodging tax on lodging revenue only, assuming you remit it. Replace both with the rates that apply to your listing and jurisdiction.</p>
+  <h3>What is on this page versus the spreadsheet?</h3>
+  <p>This free calculator uses one average nightly rate and one occupancy for a 365-day year, and you type the monthly housing payment yourself. The Quoteloom spreadsheet adds month-by-month seasonality, two scenarios side by side, own-versus-lease (rental arbitrage), a calculated mortgage payment, furnishing amortization and tax or maintenance reserves.</p>
+  <h3>Is this financial advice?</h3>
+  <p>No. It is an educational estimate that uses only the numbers you enter, plus the example figures shown on the page. It is not financial, investment, tax or legal advice, and it is not a market survey. Platform fees, occupancy taxes and local short-term-rental rules change. Verify every number and consult qualified professionals before you buy, lease or list a property.</p>
+ </div>
+ <p class="note">Other free calculators: <a href="/pressure-washing-price-calculator/">pressure washing</a>, <a href="/house-cleaning-price-calculator/">house cleaning</a>, <a href="/lawn-care-price-calculator/">lawn care</a>, <a href="/rental-calculator/">rental cash flow</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>
