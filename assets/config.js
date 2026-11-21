@@ -6,6 +6,6 @@ window.QUOTELOOM_CONFIG = {
     "pressure-washing": "https://quoteloom.gumroad.com/l/pressure-washing-calculator",
     "house-cleaning": "https://quoteloom.gumroad.com/l/house-cleaning-calculator",
     "lawn-care": "https://quoteloom.gumroad.com/l/lawn-care-calculator",
-    "rental-analyzer": ""
+    "rental-analyzer": "https://quoteloom.gumroad.com/l/rental-property-analyzer"
   }
 };
