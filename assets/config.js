@@ -7,6 +7,6 @@ window.QUOTELOOM_CONFIG = {
     "house-cleaning": "https://quoteloom.gumroad.com/l/house-cleaning-calculator",
     "lawn-care": "https://quoteloom.gumroad.com/l/lawn-care-calculator",
     "rental-analyzer": "https://quoteloom.gumroad.com/l/rental-property-analyzer",
-    "airbnb-profit": ""
+    "airbnb-profit": "https://quoteloom.gumroad.com/l/airbnb-profit-calculator"
   }
 };
