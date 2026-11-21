@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Airbnb Profit: How to Calculate If a Short-Term Rental Will Make Money | Quoteloom</title>
+<meta name="description" content="Calculate short-term rental cash flow from nightly rate, occupancy, Airbnb’s published host fee, lodging tax, cleaning and housing costs, plus break-even occupancy. Worked example; not financial advice.">
+<link rel="canonical" href="https://quoteloom.github.io/guides/calculate-airbnb-short-term-rental-profit/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Airbnb Profit: How to Calculate If a Short-Term Rental Will Make Money">
+<meta property="og:description" content="The cash-flow formulas, Airbnb’s 15.5% host fee, and a fully worked annual example you can edit.">
+<meta property="og:url" content="https://quoteloom.github.io/guides/calculate-airbnb-short-term-rental-profit/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-airbnb-profit.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Airbnb Profit: How to Calculate If a Short-Term Rental Will Make Money", "description": "Calculate short-term rental cash flow from nightly rate, occupancy, Airbnb\u2019s published host fee, lodging tax, cleaning and housing costs, plus break-even occupancy. Worked example; not financial advice.", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "author": {"@type": "Organization", "name": "Quoteloom", "url": "https://quoteloom.github.io/"}, "publisher": {"@type": "Organization", "name": "Quoteloom", "url": "https://quoteloom.github.io/", "logo": {"@type": "ImageObject", "url": "https://quoteloom.github.io/assets/apple-touch-icon.png"}}, "image": "https://quoteloom.github.io/assets/preview-airbnb-profit.png", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://quoteloom.github.io/guides/calculate-airbnb-short-term-rental-profit/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://quoteloom.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://quoteloom.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "Airbnb Profit: How to Calculate If a Short-Term Rental Will Make Money", "item": "https://quoteloom.github.io/guides/calculate-airbnb-short-term-rental-profit/"}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><nav class="nav"><a href="/guides/">Guides</a><a href="/#free-calculators">Free calculators</a></nav></div></header>
+<main>
+<div class="hero article"><div class="wrap" style="display:block">
+ <p class="breadcrumbs"><a href="/">Home</a> · <a href="/guides/">Guides</a> · Airbnb profit: how to calculate if a short-term rental will make money</p>
+ <h1>Airbnb profit: how to calculate if a short-term rental will make money</h1>
+ <p class="meta">Published 2026-11-21 · Quoteloom</p>
+</div></div>
+<article class="guide"><div class="wrap">
+
+<p><b>Not financial, investment, tax or legal advice.</b> A short-term rental can look like a high nightly rate and still lose money once empty nights, platform fees, lodging tax, cleaning, utilities, and the mortgage or lease are in the picture. This guide walks through a straightforward annual model you can compute by hand or in the <a href="/airbnb-profit-calculator/">free Quoteloom Airbnb profit calculator</a>. The numbers in the worked example are the calculator’s example inputs, not market rates, not a typical occupancy, and not a prediction that a property will earn what the example earns.</p>
+<p>If someone quotes you a national average occupancy or a “typical” cash-on-cash return and cannot show a source, do not build an offer on it. This page does not invent those figures. It shows the formulas, then plugs in a clearly labeled example so you can replace every input with your own.</p>
+
+<h2>The cash-flow identity</h2>
+<p>For a year of 365 days, with one average nightly rate and one occupancy rate (a simplification; real listings move by month):</p>
+<ul>
+<li><b>Occupied nights</b> = 365 × occupancy.</li>
+<li><b>Stays</b> = occupied nights / average length of stay (or 0 if the stay length is 0).</li>
+<li><b>Lodging revenue</b> = occupied nights × nightly rate.</li>
+<li><b>Cleaning-fee revenue</b> = stays × the cleaning fee you charge guests.</li>
+<li><b>Gross booking</b> = lodging revenue + cleaning-fee revenue.</li>
+<li><b>Platform and payment fees</b> = gross booking × the platform fee percentage.</li>
+<li><b>Lodging tax remitted</b> = lodging revenue × the lodging-tax percentage, if you are the one who remits it. (Some jurisdictions tax more than the nightly rate; use the rule that applies to you.)</li>
+<li><b>Net booking</b> = gross booking − platform fees − lodging tax remitted.</li>
+<li><b>Variable contribution</b> = net booking − stays × (your cleaning cost + supplies per stay) − (net booking × co-host or manager percentage).</li>
+<li><b>Fixed annual costs</b> = 12 × (monthly housing payment + utilities + other monthly fixed costs) + annual property tax and insurance.</li>
+<li><b>Cash flow</b> = variable contribution − fixed annual costs.</li>
+<li><b>Cash-on-cash return</b> = annual cash flow / cash invested, or “n/a” if cash invested is $0.</li>
+</ul>
+<p>Housing payment, on this free-page model, is the mortgage or rent <em>you type in</em>. The paid spreadsheet can calculate a mortgage payment from price, down payment, rate, and term, and it can compare an owned property with a lease (rental arbitrage) on the same sheet.</p>
+
+<h2>Fees you can actually look up</h2>
+<p>Platform fees are not a guess, and they are not the same on every channel. As of October 13, 2026, <a href="https://www.airbnb.com/resources/hosting-homes/a/how-much-does-airbnb-charge-hosts-288">Airbnb’s host fee article</a> states that Airbnb has moved to a single service fee structure: a <b>15.5% fee paid by hosts</b>, applied to the nightly price and to optional host-added fees such as a cleaning fee or pet fee, and deducted from the payout. The same article notes an exception: listings in Brazil and Mexico pay <b>16%</b>. Airbnb also says the information may have changed since publication, so confirm the fee on your own listing before you rely on it. The <a href="https://www.airbnb.com/help/article/1857">Airbnb service fees Help Center article</a> describes the same single-fee structure and the older split-fee structure that Airbnb has been phasing out.</p>
+<p>That official 15.5% (or 16% in Mexico and Brazil) is a better default than a round 15% if you host on Airbnb today — but only if you are actually on the single-fee structure, and only for Airbnb. A second channel (for example Vrbo) may use a different fee. If a guest books off-platform, the fee may be zero and you may pay payment processing separately. Put the percentage that applies to the booking you are modeling in the formula, not a blended number you cannot explain.</p>
+<p>Lodging or occupancy tax is local. There is no single U.S. rate that belongs in a national guide, and this page will not invent one. Look up the rate and the tax base for the city and county of the property (and whether the platform remits it or you do). The worked example uses 6% of lodging revenue only because that is the free calculator’s editable example, not because 6% is typical.</p>
+
+<h2>Worked example (example inputs, not a forecast)</h2>
+<p>The free calculator ships with these example figures so the math is visible: $165 average nightly rate, 62% occupancy, 3.5-night average stay, $125 guest cleaning fee, $85 cleaning cost and $12 supplies per stay, 0% co-host fee, $1,362 monthly housing payment, $180 utilities, $149 other monthly fixed costs, $4,400 a year for property tax and insurance, and $92,000 cash invested. We will use Airbnb’s published 15.5% host fee in the arithmetic below (the calculator’s default field is a round 15% you can edit).</p>
+<p>Occupied nights = 365 × 0.62 = <b>226.3 nights</b>.</p>
+<p>Stays = 226.3 / 3.5 = <b>64.66 stays</b>.</p>
+<p>Lodging revenue = 226.3 × $165 = <b>$37,339.50</b>.</p>
+<p>Cleaning-fee revenue = 64.6571 × $125 = <b>$8,082.14</b>.</p>
+<p>Gross booking = <b>$45,421.64</b>.</p>
+<p>Platform fees = $45,421.64 × 0.155 = <b>$7,040.35</b>.</p>
+<p>Lodging tax remitted = $37,339.50 × 0.06 = <b>$2,240.37</b>.</p>
+<p>Net booking = $45,421.64 − $7,040.35 − $2,240.37 = <b>$36,140.92</b>.</p>
+<p>Variable stay costs = 64.6571 × ($85 + $12) = <b>$6,271.74</b>. There is no co-host percentage in this example, so variable contribution = $36,140.92 − $6,271.74 = <b>$29,869.18</b>.</p>
+<p>Fixed annual costs = 12 × ($1,362 + $180 + $149) + $4,400 = 12 × $1,691 + $4,400 = $20,292 + $4,400 = <b>$24,692</b>.</p>
+<p><b>Annual cash flow</b> = $29,869.18 − $24,692 = <b>$5,177.18</b>, or about <b>$431.43</b> per month on average.</p>
+<p><b>Cash-on-cash</b> = $5,177.18 / $92,000 = <b>5.63%</b>.</p>
+<p>That is the result of this set of example inputs. Change occupancy, the nightly rate, the housing payment, or the fee percentage and the cash flow can change sign. It is not a return you should expect from “an Airbnb.”</p>
+
+<h2>Break-even occupancy</h2>
+<p>A useful companion number is the occupancy that would make annual cash flow exactly zero, holding the nightly rate, stay length, fees, and fixed costs constant:</p>
+<p><b>Break-even occupancy = fixed annual costs / variable contribution at 100% occupancy.</b></p>
+<p>If the contribution at 100% occupancy is zero or negative, break-even is not reachable: even a full calendar cannot cover the fixed costs at that rate and cost structure.</p>
+<p>In the example, a full 365 nights would be 365 / 3.5 = 104.29 stays. Lodging would be 365 × $165 = $60,225.00. Cleaning-fee revenue would be $13,035.71. Gross booking would be $73,260.71. Platform fees at 15.5% would be $11,355.41. Lodging tax would be $3,613.50. Net booking would be $58,291.80. Variable stay costs would be $10,115.71. Variable contribution at 100% occupancy would be <b>$48,176.09</b>.</p>
+<p>Break-even occupancy = $24,692 / $48,176.09 = <b>51.25%</b>.</p>
+<p>The example’s 62% occupancy sits above that floor, which is why the cash flow is positive. If realized occupancy came in at the floor, cash flow would be about zero before any surprise repairs. If it came in below, the year would be cash-flow negative on this model. The 51.25% figure is also not a goal to advertise; it is a stress test of the rate and the cost stack you entered.</p>
+
+<h2>What a single annual average will miss</h2>
+<p>Real listings are seasonal. A midweek January rate is not a June weekend rate, and a 62% year-round occupancy can hide a packed summer and a hollow winter. An annual average is good enough to see whether the story is even close. It is not good enough to decide on a purchase or a lease by itself.</p>
+<p>The <a href="/#airbnb-profit">Airbnb / Short-Term Rental Profit Calculator spreadsheet</a> is built for that next step: a nightly rate and occupancy for each month, two scenarios side by side, an owned property with a mortgage (including 0% interest and all-cash) or a lease you re-list (rental arbitrage), furnishing setup with an amortization line that is shown but not subtracted from cash flow (because that cash is already in cash invested), and the same break-even and cash-on-cash results. The free page leaves those pieces out on purpose.</p>
+<p>Cash flow on this model is also not profit after income tax, depreciation, or a future sale. Local short-term-rental rules can limit nights, require permits, or ban the use altogether. None of that is in the arithmetic above. Verify the numbers and the rules, and talk to qualified professionals, before you buy, lease, or list a property.</p>
+
+<div class="cta-box">
+<p><b>Run the annual model with your own rate, occupancy, and costs.</b> The free calculator uses the formulas in this guide for a 365-day year. The spreadsheet adds month-by-month seasonality and an own-versus-lease comparison. It is an educational estimating tool, not a forecast.</p>
+<p><a href="/airbnb-profit-calculator/">Open the free Airbnb profit calculator</a></p>
+<p><button class="cta disabled" type="button" disabled data-buy="airbnb-profit" data-buy-label="Get the Airbnb profit spreadsheet: US$15">Coming soon: US$15</button></p>
+</div>
+
+<h2>Related guides</h2>
+<ul>
+<li><a href="/guides/how-much-to-charge-for-pressure-washing/">How much to charge for pressure washing (2026 pricing guide)</a></li>
+<li><a href="/guides/how-to-price-house-cleaning-jobs/">How to price house cleaning jobs</a></li>
+<li><a href="/rental-calculator/">Free long-term rental cash flow calculator</a></li>
+</ul>
+
+<h2>Sources</h2>
+<ul class="sources">
+<li>Airbnb, “How much does Airbnb charge hosts?,” published October 13, 2026. <a href="https://www.airbnb.com/resources/hosting-homes/a/how-much-does-airbnb-charge-hosts-288">https://www.airbnb.com/resources/hosting-homes/a/how-much-does-airbnb-charge-hosts-288</a>. Figures cited: single 15.5% host service fee on nightly price and host-added fees; 16% for listings in Brazil and Mexico.</li>
+<li>Airbnb Help Center, “Airbnb service fees.” <a href="https://www.airbnb.com/help/article/1857">https://www.airbnb.com/help/article/1857</a>. Describes the single-fee structure and the older split-fee structure being phased out.</li>
+</ul>
+<p class="note">Example calculator inputs are not market data. This page is not financial, investment, tax or legal advice and not a prediction of occupancy or return.</p>
+
+</div></article>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>
