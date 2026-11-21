@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Free Rental Property Cash Flow &amp; Cap Rate Calculator | Quoteloom</title>
+<meta name="description" content="Free rental property calculator: enter price, down payment, rate, rent, vacancy and expenses to see the mortgage payment, NOI, monthly cash flow, cap rate and cash-on-cash return. No signup, runs in your browser.">
+<link rel="canonical" href="https://quoteloom.github.io/rental-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free Rental Property Cash Flow &amp; Cap Rate Calculator">
+<meta property="og:description" content="Mortgage payment, NOI, cash flow, cap rate and cash-on-cash return in seconds. No signup.">
+<meta property="og:url" content="https://quoteloom.github.io/rental-calculator/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-rental-analyzer.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/rental.js" defer></script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><a href="/" style="color:#fff">Products</a></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <h1>Free rental property cash flow &amp; cap rate calculator</h1>
+ <p>Enter the price, financing, rent and monthly expenses to estimate the mortgage payment, NOI, cash flow, cap rate and cash-on-cash return. No signup; everything runs in your browser and nothing is stored.</p>
+</div></div>
+
+<section><div class="wrap">
+ <div class="calc">
+  <div class="fields">
+   <label>Purchase price ($)<input id="price" type="number" inputmode="decimal" value="240000" min="0" step="1000"></label>
+   <label>Closing costs + repairs ($)<input id="closing" type="number" inputmode="decimal" value="12200" min="0" step="100"></label>
+   <label>Down payment (%; 100 = all cash)<input id="down" type="number" inputmode="decimal" value="25" min="0" max="100" step="1"></label>
+   <label>Interest rate (% per year)<input id="rate" type="number" inputmode="decimal" value="7" min="0" step="0.125"></label>
+   <label>Loan term (years)<input id="term" type="number" inputmode="numeric" value="30" min="1" step="1"></label>
+   <label>Monthly rent + other income ($)<input id="rent" type="number" inputmode="decimal" value="2100" min="0" step="25"></label>
+   <label>Vacancy (% of income)<input id="vac" type="number" inputmode="decimal" value="6" min="0" max="100" step="1"></label>
+   <label>Monthly operating expenses ($)<input id="opex" type="number" inputmode="decimal" value="764" min="0" step="10"></label>
+  </div>
+  <div class="results" aria-live="polite">
+   <div><span>Mortgage payment</span><strong id="o-pmt">-</strong></div>
+   <div><span>NOI per month</span><strong id="o-noi">-</strong></div>
+   <div><span>Cash flow per month</span><strong id="o-cf">-</strong></div>
+   <div><span>Cap rate</span><strong id="o-cap">-</strong></div>
+   <div><span>Cash-on-cash</span><strong id="o-coc">-</strong></div>
+  </div>
+  <p class="note">Operating expenses = tax, insurance, HOA, management, repairs, capital reserves and owner-paid utilities per month, not the mortgage. Example values shown; use your own.</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>How it's calculated</h2>
+ <ul>
+  <li><b>Mortgage payment</b> = loan &times; r / (1 &minus; (1 + r)<sup>&minus;n</sup>), with r = annual rate / 12 and n = years &times; 12. At 0% it is loan / n; with 100% down it is $0.</li>
+  <li><b>NOI</b> (net operating income) = rent &times; (1 &minus; vacancy) &minus; operating expenses.</li>
+  <li><b>Cash flow</b> = NOI &minus; mortgage payment.</li>
+  <li><b>Cap rate</b> = annual NOI / purchase price. <b>Cash-on-cash</b> = annual cash flow / (down payment + closing costs + repairs).</li>
+ </ul>
+ <p class="note"><b>Not financial advice.</b> This is an educational estimate based only on what you enter. It ignores income taxes, depreciation and selling costs. Verify numbers and talk to qualified professionals before buying property.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Need to compare deals or look 10 years ahead?</h2>
+ <p>The Quoteloom <b>Rental Property Cash Flow &amp; Deal Analyzer</b> spreadsheet compares up to 3 properties side by side, with each expense line split out, DSCR, GRM, the 1% rule, break-even occupancy and a 10-year projection of equity and total return.</p>
+ <button class="cta disabled" type="button" disabled data-buy="rental-analyzer" data-buy-label="Get the rental analyzer: US$15">Coming soon: US$15</button>
+ <p><a href="/#rental-analyzer">More about the spreadsheet</a></p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>
