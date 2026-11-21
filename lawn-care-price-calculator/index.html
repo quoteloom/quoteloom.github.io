@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Free Lawn Care Pricing Calculator | Quoteloom</title>
+<meta name="description" content="Free lawn care pricing calculator: enter lot size and seasonal visit counts for mowing, edging, trimming, leaf cleanup, fertilizing and aeration to see the contract total, monthly payment, labor, fuel, profit and the minimum contract price for your target margin.">
+<link rel="canonical" href="https://quoteloom.github.io/lawn-care-price-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free Lawn Care Pricing Calculator">
+<meta property="og:description" content="Turn visit counts and lot size into a seasonal contract, monthly payment, profit and the minimum price for your target margin. No signup.">
+<meta property="og:url" content="https://quoteloom.github.io/lawn-care-price-calculator/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-lawn-care.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/lawn-care.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I price a lawn care contract?","acceptedAnswer":{"@type":"Answer","text":"Price each service visit from the lot size (with a minimum so small yards still cover a stop), multiply by how many visits you will make that season, then subtract a contract discount if you offer one. Divide the season total by the months you bill to get the monthly payment. Check that the contract still clears your target margin after labor, equipment time, travel, materials and disposal."}},{"@type":"Question","name":"Should I charge per visit or by the season?","acceptedAnswer":{"@type":"Answer","text":"Either can work. A seasonal contract with a monthly payment smooths revenue and is easier to explain as a package. Per-visit pricing is clearer when the schedule changes week to week. This calculator builds a season total and a monthly payment so you can compare both views of the same work."}},{"@type":"Question","name":"Does this include monthly overhead?","acceptedAnswer":{"@type":"Answer","text":"No. The free calculator includes crew labor, equipment time, travel, materials and disposal fees. The Quoteloom spreadsheet also allocates monthly overhead across your yearly visits and includes a job log and a 12-month projection."}},{"@type":"Question","name":"Are the example prices typical rates?","acceptedAnswer":{"@type":"Answer","text":"No. Example figures (for instance mowing at $6 per 1,000 sq ft with a $40 minimum) come from the Quoteloom workbook so the formulas are visible. They are not a market survey. Use your own rates, wages and visit counts. This is a planning aid, not pricing, tax, legal or accounting advice."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><a href="/#free-calculators" style="color:#fff">Free calculators</a></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <h1>Free lawn care pricing calculator</h1>
+ <p>Enter the lot size and how many visits you will make for mowing, edging, trimming, leaf cleanup, fertilizing and aeration. You get a season contract total, a monthly payment, labor, equipment time, travel, profit and the minimum contract price for your target margin. No signup; it runs in your browser and nothing is stored.</p>
+</div></div>
+
+<section><div class="wrap">
+ <div class="calc">
+  <div class="fields">
+   <label>Lot size<input id="size" type="number" inputmode="decimal" value="0.25" min="0" step="0.01"></label>
+   <label>Size unit
+    <select id="unit">
+     <option selected>Acres</option>
+     <option>Sq ft</option>
+    </select>
+   </label>
+   <label>Mowing visits<input id="mow" type="number" inputmode="numeric" value="28" min="0" step="1"></label>
+   <label>Edging visits<input id="edge" type="number" inputmode="numeric" value="14" min="0" step="1"></label>
+   <label>String trimming visits<input id="trim" type="number" inputmode="numeric" value="28" min="0" step="1"></label>
+   <label>Leaf cleanup visits<input id="leaf" type="number" inputmode="numeric" value="2" min="0" step="1"></label>
+   <label>Fertilizing visits<input id="fert" type="number" inputmode="numeric" value="4" min="0" step="1"></label>
+   <label>Core aeration visits<input id="aerate" type="number" inputmode="numeric" value="1" min="0" step="1"></label>
+   <label>Contract discount (%)<input id="discountPct" type="number" inputmode="decimal" value="5" min="0" max="100" step="1"></label>
+   <label>Months billed<input id="months" type="number" inputmode="numeric" value="8" min="1" step="1"></label>
+   <label>Labor cost per worker-hour ($)<input id="wage" type="number" inputmode="decimal" value="20" min="0" step="0.5"></label>
+   <label>Crew size<input id="crew" type="number" inputmode="numeric" value="2" min="1" step="1"></label>
+   <label>Equipment cost per hour ($)<input id="equipHr" type="number" inputmode="decimal" value="9" min="0" step="0.5"></label>
+   <label>Setup minutes per trip<input id="setupMin" type="number" inputmode="decimal" value="10" min="0" step="5"></label>
+   <label>Round-trip miles (per trip)<input id="miles" type="number" inputmode="decimal" value="8" min="0" step="1"></label>
+   <label>Cost per mile ($)<input id="cpm" type="number" inputmode="decimal" value="0.75" min="0" step="0.05"></label>
+   <label>Target margin (%)<input id="targetPct" type="number" inputmode="decimal" value="30" min="0" max="99" step="1"></label>
+  </div>
+  <div class="results" aria-live="polite">
+   <div><span>Season contract</span><strong id="o-contract">-</strong></div>
+   <div><span>Monthly payment</span><strong id="o-monthly">-</strong></div>
+   <div><span>Crew hours (season)</span><strong id="o-hours">-</strong></div>
+   <div><span>Labor</span><strong id="o-labor">-</strong></div>
+   <div><span>Equipment time</span><strong id="o-equip">-</strong></div>
+   <div><span>Travel</span><strong id="o-travel">-</strong></div>
+   <div><span>Materials &amp; disposal</span><strong id="o-mats">-</strong></div>
+   <div><span>Season cost</span><strong id="o-cost">-</strong></div>
+   <div><span>Profit</span><strong id="o-profit">-</strong></div>
+   <div><span>Margin</span><strong id="o-margin">-</strong></div>
+   <div><span>Min. contract for target</span><strong id="o-min">-</strong></div>
+   <div><span>Target check</span><strong id="o-status">-</strong></div>
+  </div>
+  <p class="note">Example: a quarter-acre lot on an 8-month contract with a 5% package discount. Trip count for travel is the highest visit count among the services (mowing, in the example). This page leaves out allocated monthly overhead, which the spreadsheet includes.</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>How to price lawn care and seasonal contracts</h2>
+ <p>Convert the lot to square feet if you think in acres (one acre = 43,560 sq ft). Price each service as the greater of (square feet / 1,000 &times; your price per 1,000 sq ft) and your minimum for that stop, then multiply by the number of visits. A small yard can still take a full setup, which is why a minimum matters.</p>
+ <p>Add the services together for the season, then apply a contract discount only if the package really saves you selling time or fuel. Divide by the months you will bill to get a monthly payment. Cost should include crew labor, hours of equipment time, travel on each trip, fertilizer or other materials, and any disposal fees. If the margin is below your target, raise the contract or cut visits you cannot staff profitably.</p>
+ <h2>How it's calculated</h2>
+ <ul>
+  <li><b>Visit price</b> for each service = the greater of (lot sq ft / 1,000 &times; price per 1,000 sq ft) and the service minimum, times the visit count.</li>
+  <li><b>Season contract</b> = sum of visit prices &times; (1 &minus; discount). <b>Monthly payment</b> = contract / months billed.</li>
+  <li><b>Hours</b> = sum of (visits &times; lot sq ft / production rate) + trips &times; setup minutes / 60, where trips = the highest visit count.</li>
+  <li><b>Labor</b> = hours &times; crew &times; labor cost per worker-hour. <b>Equipment</b> = hours &times; equipment cost per hour. <b>Travel</b> = trips &times; miles &times; cost per mile.</li>
+  <li><b>Season cost</b> = labor + equipment + travel + materials + disposal. <b>Minimum contract</b> = season cost / (1 &minus; target margin).</li>
+ </ul>
+ <p class="note">Example rates: mowing $6 / 1,000 sq ft ($40 minimum), edging and trimming $1.50 / 1,000 sq ft ($10 minimum), leaf cleanup $14 / 1,000 sq ft ($120 minimum, $25 disposal), fertilizing $5 / 1,000 sq ft ($45 minimum, $2.20 materials), aeration $9 / 1,000 sq ft ($80 minimum). These are examples, not market rates. This is a planning aid, not pricing advice.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Need editable rates, overhead and a job log?</h2>
+ <p>The Quoteloom <b>Lawn Care Pricing &amp; Profit Calculator</b> spreadsheet lets you edit prices, minimums, production rates, materials and disposal fees for each service, allocate monthly overhead, and keep a job log plus a seasonal 12-month projection.</p>
+ <button class="cta disabled" type="button" disabled data-buy="lawn-care" data-buy-label="Get the spreadsheet: US$12">Get the spreadsheet: US$12</button>
+ <p><a href="/#lawn-care">More about the spreadsheet</a></p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Frequently asked questions</h2>
+ <div class="faq">
+  <h3>How do I price a lawn care contract?</h3>
+  <p>Price each service visit from the lot size (with a minimum so small yards still cover a stop), multiply by how many visits you will make that season, then subtract a contract discount if you offer one. Divide the season total by the months you bill to get the monthly payment. Check that the contract still clears your target margin after labor, equipment time, travel, materials and disposal.</p>
+  <h3>Should I charge per visit or by the season?</h3>
+  <p>Either can work. A seasonal contract with a monthly payment smooths revenue and is easier to explain as a package. Per-visit pricing is clearer when the schedule changes week to week. This calculator builds a season total and a monthly payment so you can compare both views of the same work.</p>
+  <h3>Does this include monthly overhead?</h3>
+  <p>No. The free calculator includes crew labor, equipment time, travel, materials and disposal fees. The Quoteloom spreadsheet also allocates monthly overhead across your yearly visits and includes a job log and a 12-month projection.</p>
+  <h3>Are the example prices typical rates?</h3>
+  <p>No. Example figures (for instance mowing at $6 per 1,000 sq ft with a $40 minimum) come from the Quoteloom workbook so the formulas are visible. They are not a market survey. Use your own rates, wages and visit counts. This is a planning aid, not pricing, tax, legal or accounting advice.</p>
+ </div>
+ <p class="note">Other free calculators: <a href="/pressure-washing-price-calculator/">pressure washing</a>, <a href="/house-cleaning-price-calculator/">house cleaning</a>, <a href="/rental-calculator/">rental cash flow</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>

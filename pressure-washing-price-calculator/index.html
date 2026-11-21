@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Free Pressure Washing Pricing Calculator | Quoteloom</title>
+<meta name="description" content="Free pressure washing pricing calculator: enter house, driveway, deck, roof and gutter sizes to see a quote, labor, chemical and travel cost, profit and the minimum price for your target margin. No signup.">
+<link rel="canonical" href="https://quoteloom.github.io/pressure-washing-price-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free Pressure Washing Pricing Calculator">
+<meta property="og:description" content="Quote a house wash, driveway, deck, roof or gutters and see labor, chemicals, travel, profit and the minimum price for your target margin. No signup.">
+<meta property="og:url" content="https://quoteloom.github.io/pressure-washing-price-calculator/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-quote.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/pressure-washing.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I price a pressure washing job?","acceptedAnswer":{"@type":"Answer","text":"Start from the surface size and your price per square foot or linear foot, then apply your minimum charge if the area is small. Add setup time, labor for the whole crew, chemicals and mileage. Compare the quote with the minimum price that hits your target margin before you send it."}},{"@type":"Question","name":"What is a typical price per square foot for house washing?","acceptedAnswer":{"@type":"Answer","text":"There is no single market rate. This calculator ships with example rates (for instance $0.20 per sq ft and a $250 minimum on a house wash) so the math is visible. Replace those sizes and your own labor rate with what you actually charge and spend."}},{"@type":"Question","name":"Does this include equipment wear and overhead?","acceptedAnswer":{"@type":"Answer","text":"No. The free calculator includes labor, chemicals and travel only, so you can see those lines clearly. The Quoteloom spreadsheet also allocates equipment wear and monthly overhead to each job and keeps a job log and seasonal projection."}},{"@type":"Question","name":"Is this pricing advice?","acceptedAnswer":{"@type":"Answer","text":"No. It is a planning aid that uses only the numbers you enter, plus the example rates shown on the page. It is not a market survey, insurance quote or tax, legal or accounting advice."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><a href="/#free-calculators" style="color:#fff">Free calculators</a></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <h1>Free pressure washing pricing calculator</h1>
+ <p>Enter the job sizes, a discount if you offer one, and your labor and travel costs. You get a quote, hours, labor, chemicals, mileage, profit and the minimum price that hits your target margin. No signup; it runs in your browser and nothing is stored.</p>
+</div></div>
+
+<section><div class="wrap">
+ <div class="calc">
+  <div class="fields">
+   <label>House wash, siding (sq ft)<input id="house" type="number" inputmode="decimal" value="2400" min="0" step="50"></label>
+   <label>Driveway / concrete (sq ft)<input id="driveway" type="number" inputmode="decimal" value="900" min="0" step="50"></label>
+   <label>Deck (sq ft)<input id="deck" type="number" inputmode="decimal" value="0" min="0" step="25"></label>
+   <label>Roof soft wash (sq ft)<input id="roof" type="number" inputmode="decimal" value="0" min="0" step="50"></label>
+   <label>Gutters (linear ft)<input id="gutters" type="number" inputmode="decimal" value="180" min="0" step="10"></label>
+   <label>Discount (%)<input id="discountPct" type="number" inputmode="decimal" value="5" min="0" max="100" step="1"></label>
+   <label>Round-trip miles<input id="miles" type="number" inputmode="decimal" value="24" min="0" step="1"></label>
+   <label>Cost per mile ($)<input id="cpm" type="number" inputmode="decimal" value="0.70" min="0" step="0.05"></label>
+   <label>Setup hours<input id="setupHours" type="number" inputmode="decimal" value="0.75" min="0" step="0.25"></label>
+   <label>Crew size<input id="crew" type="number" inputmode="numeric" value="2" min="1" step="1"></label>
+   <label>Labor cost per worker-hour ($)<input id="laborRate" type="number" inputmode="decimal" value="22" min="0" step="0.5"></label>
+   <label>Target margin (%)<input id="targetPct" type="number" inputmode="decimal" value="35" min="0" max="99" step="1"></label>
+  </div>
+  <div class="results" aria-live="polite">
+   <div><span>Quoted price</span><strong id="o-quoted">-</strong></div>
+   <div><span>Crew hours (incl. setup)</span><strong id="o-hours">-</strong></div>
+   <div><span>Labor</span><strong id="o-labor">-</strong></div>
+   <div><span>Chemicals</span><strong id="o-chem">-</strong></div>
+   <div><span>Travel</span><strong id="o-travel">-</strong></div>
+   <div><span>Job cost</span><strong id="o-cost">-</strong></div>
+   <div><span>Profit</span><strong id="o-profit">-</strong></div>
+   <div><span>Margin</span><strong id="o-margin">-</strong></div>
+   <div><span>Min. price for target</span><strong id="o-min">-</strong></div>
+   <div><span>Target check</span><strong id="o-status">-</strong></div>
+  </div>
+  <p class="note">Example sizes match a sample house-plus-driveway-plus-gutters job. Leave a surface at 0 to skip it. This page leaves out equipment wear and monthly overhead, which the spreadsheet allocates to each job.</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>How to price a pressure washing job</h2>
+ <p>Measure each surface (or use a site estimate you trust) and apply your price per square foot or linear foot. If that comes in below your minimum charge for that service, use the minimum — small jobs still take setup, travel and tank time. Add setup hours, then multiply crew hours by crew size and what each worker actually costs you (wage plus payroll costs, not just the hourly rate you pay out).</p>
+ <p>Chemicals should follow the surface you are treating, and mileage should include the real round trip, not just the driveway. When the margin on the quote is below your target, raise the price to at least the “minimum price for target,” or decline the job. The example rates on this page are starting points from the Quoteloom workbook (house wash $0.20/sq ft with a $250 minimum, driveway $0.18 with a $150 minimum, deck $0.75 with a $200 minimum, roof soft wash $0.40 with a $400 minimum, gutters $1.50/linear ft with a $125 minimum). They are not market rates.</p>
+ <h2>How it's calculated</h2>
+ <ul>
+  <li><b>Quote</b> for each service = the greater of (size &times; price per unit) and the service minimum. Services at size 0 are skipped. A discount, if any, is applied to the subtotal.</li>
+  <li><b>Crew hours</b> = size / production rate, plus setup hours when there is any work.</li>
+  <li><b>Labor</b> = crew hours &times; crew size &times; labor cost per worker-hour.</li>
+  <li><b>Chemicals</b> = size &times; chemical cost per unit. <b>Travel</b> = miles &times; cost per mile.</li>
+  <li><b>Job cost</b> = labor + chemicals + travel. <b>Profit</b> = quote &minus; job cost. <b>Margin</b> = profit / quote. <b>Minimum price</b> = job cost / (1 &minus; target margin).</li>
+ </ul>
+ <p class="note">This is a planning aid, not pricing, tax, legal or accounting advice. Use your own numbers.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Need production rates, equipment cost and a job log?</h2>
+ <p>The Quoteloom <b>Pressure Washing Pricing &amp; Profit Calculator</b> spreadsheet lets you edit prices, minimums, production rates and chemical costs for five services, then adds equipment wear, monthly overhead, sales tax, a job log and a seasonal projection.</p>
+ <button class="cta disabled" type="button" disabled data-buy="pressure-washing" data-buy-label="Get the spreadsheet: US$12">Get the spreadsheet: US$12</button>
+ <p><a href="/#pressure-washing">More about the spreadsheet</a></p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Frequently asked questions</h2>
+ <div class="faq">
+  <h3>How do I price a pressure washing job?</h3>
+  <p>Start from the surface size and your price per square foot or linear foot, then apply your minimum charge if the area is small. Add setup time, labor for the whole crew, chemicals and mileage. Compare the quote with the minimum price that hits your target margin before you send it.</p>
+  <h3>What is a typical price per square foot for house washing?</h3>
+  <p>There is no single market rate. This calculator ships with example rates (for instance $0.20 per sq ft and a $250 minimum on a house wash) so the math is visible. Replace those sizes and your own labor rate with what you actually charge and spend.</p>
+  <h3>Does this include equipment wear and overhead?</h3>
+  <p>No. The free calculator includes labor, chemicals and travel only, so you can see those lines clearly. The Quoteloom spreadsheet also allocates equipment wear and monthly overhead to each job and keeps a job log and seasonal projection.</p>
+  <h3>Is this pricing advice?</h3>
+  <p>No. It is a planning aid that uses only the numbers you enter, plus the example rates shown on the page. It is not a market survey, insurance quote or tax, legal or accounting advice.</p>
+ </div>
+ <p class="note">Other free calculators: <a href="/house-cleaning-price-calculator/">house cleaning</a>, <a href="/lawn-care-price-calculator/">lawn care</a>, <a href="/rental-calculator/">rental cash flow</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>

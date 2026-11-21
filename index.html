@@ -22,18 +22,18 @@
 <meta name="theme-color" content="#12263A">
 <script src="/assets/config.js" defer></script>
 <script src="/assets/buy.js" defer></script>
-<script src="/assets/calc.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Pressure Washing Pricing & Profit Calculator","brand":{"@type":"Brand","name":"Quoteloom"},"description":"Spreadsheet template to quote pressure washing jobs and calculate true job cost, profit, margin and a seasonal projection.","image":"https://quoteloom.github.io/assets/og-image.png"}</script>
 </head>
 <body>
-<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><a href="#calculator" style="color:#fff">Free calculator</a></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><a href="#free-calculators" style="color:#fff">Free calculators</a></div></header>
 <main>
-<div class="hero"><div class="wrap">
+<div class="hero" id="pressure-washing"><div class="wrap">
  <div>
   <span class="pill">Spreadsheet template · one-time purchase</span>
   <h1>Pressure Washing Pricing &amp; Profit Calculator</h1>
   <p>Quote house washes, driveways, decks, roof soft washes and gutters. See the true cost of the job and your profit before you send the price.</p>
   <button class="cta disabled" type="button" disabled data-buy="pressure-washing" data-buy-label="Get the spreadsheet: US$12">Coming soon: US$12</button>
+  <p class="note" style="color:#c9d8e6;margin-top:12px"><a href="/pressure-washing-price-calculator/" style="color:#c9d8e6">Try the free pressure washing pricing calculator</a></p>
   <p class="note" style="color:#c9d8e6;margin-top:12px">Standard .xlsx file. Verified in LibreOffice; it uses only basic formulas that Excel and Google Sheets also support.</p>
  </div>
  <img src="/assets/preview-quote.png" alt="Quote tab of the spreadsheet filled with example data" width="900" height="711">
@@ -55,6 +55,7 @@
   <div>
    <p>Price any home by square foot, by bedrooms and bathrooms, or by the hour. Covers standard, deep and move-in/out cleans, your own weekly, biweekly and monthly discounts, and add-ons like oven, fridge, windows and laundry.</p>
    <p>See time on site, labor (wage &times; hours &times; crew), supplies, travel, overhead, profit, margin and the minimum price for your target margin. Includes a job log and a 12-month projection.</p>
+   <p><a href="/house-cleaning-price-calculator/">Try the free house cleaning pricing calculator</a></p>
    <button class="cta disabled" type="button" disabled data-buy="house-cleaning" data-buy-label="Get the house cleaning spreadsheet: US$12">Coming soon: US$12</button>
   </div>
   <img src="/assets/preview-house-cleaning.png" alt="Quote tab of the house cleaning spreadsheet with example data" width="900" height="800" loading="lazy">
@@ -67,6 +68,7 @@
   <div>
    <p>Price each visit by lot size in square feet or acres for mowing, edging, trimming, leaf cleanup, fertilizing and aeration, with your own minimums. Turn it into a seasonal contract with visit counts, a contract discount and a monthly payment.</p>
    <p>See crew labor, fuel and equipment per hour, travel, materials, disposal fees, overhead, profit, margin and the minimum contract price for your target margin. Includes a job log and a seasonal 12-month projection.</p>
+   <p><a href="/lawn-care-price-calculator/">Try the free lawn care pricing calculator</a></p>
    <button class="cta disabled" type="button" disabled data-buy="lawn-care" data-buy-label="Get the lawn care spreadsheet: US$12">Coming soon: US$12</button>
   </div>
   <img src="/assets/preview-lawn-care.png" alt="Quote tab of the lawn care spreadsheet with example data" width="900" height="610" loading="lazy">
@@ -86,25 +88,14 @@
  </div>
 </div></section>
 
-<section id="calculator"><div class="wrap">
- <h2>Free quick check: what does this job really earn?</h2>
- <div class="calc">
-  <div class="fields">
-   <label>Quoted price ($)<input id="price" type="number" inputmode="decimal" value="500" min="0" step="1"></label>
-   <label>Crew hours incl. setup<input id="hours" type="number" inputmode="decimal" value="3" min="0" step="0.25"></label>
-   <label>Crew size<input id="crew" type="number" inputmode="numeric" value="2" min="1" step="1"></label>
-   <label>Labor cost per worker-hour ($)<input id="rate" type="number" inputmode="decimal" value="22" min="0" step="0.5"></label>
-   <label>Chemicals, fuel &amp; other job costs ($)<input id="other" type="number" inputmode="decimal" value="60" min="0" step="1"></label>
-   <label>Target margin (%)<input id="targetPct" type="number" inputmode="decimal" value="35" min="0" max="99" step="1"></label>
-  </div>
-  <div class="results" aria-live="polite">
-   <div><span>Labor</span><strong id="o-labor">-</strong></div>
-   <div><span>Job cost</span><strong id="o-cost">-</strong></div>
-   <div><span>Profit</span><strong id="o-profit">-</strong></div>
-   <div><span>Margin</span><strong id="o-margin">-</strong></div>
-   <div><span>Min. price for target</span><strong id="o-min">-</strong></div>
-  </div>
-  <p class="note">Simplified on purpose: it leaves out equipment wear and overhead, which the full spreadsheet includes. Example values shown; use your own.</p>
+<section id="free-calculators"><div class="wrap">
+ <h2>Free calculators</h2>
+ <p>No signup. Each one runs in your browser and uses the same core math as the matching spreadsheet, simplified. Example numbers are not market rates.</p>
+ <div class="calclist">
+  <div class="card"><h3>Pressure washing pricing</h3><p>Quote a house wash, driveway, deck, roof or gutters and see labor, chemicals, travel, profit and the minimum price for your target margin.</p><p><a href="/pressure-washing-price-calculator/">Open the free calculator</a></p></div>
+  <div class="card"><h3>House cleaning pricing</h3><p>Price a standard, deep or move-out clean by square foot, rooms or the hour, with frequency discounts and add-ons.</p><p><a href="/house-cleaning-price-calculator/">Open the free calculator</a></p></div>
+  <div class="card"><h3>Lawn care pricing</h3><p>Turn lot size and seasonal visit counts into a contract total, monthly payment, profit and a minimum contract price.</p><p><a href="/lawn-care-price-calculator/">Open the free calculator</a></p></div>
+  <div class="card"><h3>Rental cash flow &amp; cap rate</h3><p>Enter price, financing, rent and expenses to estimate the mortgage payment, NOI, cash flow, cap rate and cash-on-cash return.</p><p><a href="/rental-calculator/">Open the free calculator</a></p></div>
  </div>
 </div></section>
 
