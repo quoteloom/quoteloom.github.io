@@ -4,6 +4,6 @@
 window.QUOTELOOM_CONFIG = {
   products: {
     "pressure-washing": "https://quoteloom.gumroad.com/l/pressure-washing-calculator",
-    "house-cleaning": ""
+    "house-cleaning": "https://quoteloom.gumroad.com/l/house-cleaning-calculator"
   }
 };
