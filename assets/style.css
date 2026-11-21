@@ -33,3 +33,4 @@ footer{border-top:1px solid var(--line);padding:24px 0;font-size:.9rem;color:var
 @media (min-width:760px){.hero .wrap{grid-template-columns:1.05fr 1fr;align-items:center}.grid{grid-template-columns:1fr 1fr}.fields{grid-template-columns:repeat(3,1fr)}.results{grid-template-columns:repeat(5,1fr)}}
 .cta.disabled{background:#9fb3c4;color:#24384b;cursor:not-allowed}
 .cta{border:0;font:inherit;font-weight:700}
+img{max-width:100%;height:auto}.grid>*{min-width:0}#house-cleaning img{border:1px solid var(--line);border-radius:8px}
