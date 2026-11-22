@@ -8,6 +8,6 @@ window.QUOTELOOM_CONFIG = {
     "lawn-care": "https://quoteloom.gumroad.com/l/lawn-care-calculator",
     "rental-analyzer": "https://quoteloom.gumroad.com/l/rental-property-analyzer",
     "airbnb-profit": "https://quoteloom.gumroad.com/l/airbnb-profit-calculator",
-    "trucking-cost-per-mile": ""
+    "trucking-cost-per-mile": "https://quoteloom.gumroad.com/l/trucking-cost-per-mile-calculator"
   }
 };
