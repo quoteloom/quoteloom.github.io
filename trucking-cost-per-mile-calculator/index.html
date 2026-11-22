@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Free Trucking Cost-Per-Mile &amp; Load Profit Calculator | Quoteloom</title>
+<meta name="description" content="Free owner-operator trucking calculator: enter fixed costs, fuel price and MPG, maintenance, tires and a load to see cost per mile, break-even rate and load profit after deadhead. No signup, runs in your browser.">
+<link rel="canonical" href="https://quoteloom.github.io/trucking-cost-per-mile-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free Trucking Cost-Per-Mile &amp; Load Profit Calculator">
+<meta property="og:description" content="Fixed and variable costs in, cost per mile, break-even loaded rate and load profit after deadhead out. No signup.">
+<meta property="og:url" content="https://quoteloom.github.io/trucking-cost-per-mile-calculator/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-trucking-cost-per-mile.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/trucking.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate trucking cost per mile?", "acceptedAnswer": {"@type": "Answer", "text": "Add up annual fixed costs (truck payment, insurance, permits, ELD and other monthly costs) and divide by your annual miles, including empty miles. Add variable costs per mile: fuel price divided by MPG, plus maintenance, tires and average tolls, plus any per-mile driver pay. The sum is your cost per mile. It is an estimate from the numbers you enter, not a market average."}}, {"@type": "Question", "name": "What is a break-even rate per loaded mile?", "acceptedAnswer": {"@type": "Answer", "text": "You are usually paid only on loaded miles, but you still burn fuel and time on deadhead. The break-even loaded rate is your cost per mile divided by the share of miles that are loaded. If 16% of your miles are empty, you need a higher rate on the paid miles to cover that empty running."}}, {"@type": "Question", "name": "Should I include my own pay as a cost?", "acceptedAnswer": {"@type": "Answer", "text": "A solo owner-operator can leave driver pay at $0 and treat the calculator’s profit as the pay left after running the truck. If you hire a driver, or you want a target wage counted as a cost, enter a per-mile amount. The spreadsheet also supports a percent of revenue or an annual salary."}}, {"@type": "Question", "name": "What is on this page versus the spreadsheet?", "acceptedAnswer": {"@type": "Answer", "text": "This free calculator uses one set of annual costs, average tolls per mile, per-mile driver pay and one load with a per-mile rate. The Quoteloom spreadsheet adds two scenarios side by side, tire-set cost and life, percent-of-revenue or salary driver pay, factoring, flat-rate loads, trip-specific tolls and an annual profit view."}}, {"@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is an educational estimate that uses only the numbers you enter, plus the example figures shown on the page. It is not financial, tax, legal or business advice, and it is not a survey of freight rates or operating costs. Fuel prices, insurance and freight rates change. Verify every number and consult qualified professionals before you bid a load, lease a truck or change how you operate."}}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><nav class="nav"><a href="/guides/">Guides</a><a href="/#free-calculators">Free calculators</a></nav></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <h1>Free trucking cost-per-mile &amp; load profit calculator</h1>
+ <p>Enter your fixed costs, fuel price and MPG, maintenance, tires and one load to estimate cost per mile, the break-even rate per loaded mile and profit after deadhead. No signup; everything runs in your browser and nothing is stored.</p>
+</div></div>
+
+<section><div class="wrap">
+ <div class="calc">
+  <div class="fields">
+   <label>Annual miles (including deadhead)<input id="miles" type="number" inputmode="decimal" value="100000" min="0" step="1000"></label>
+   <label>Loaded-mile share (% of annual miles)<input id="loadedPct" type="number" inputmode="decimal" value="84" min="0" max="100" step="1"></label>
+   <label>Truck payment ($ per month)<input id="truck" type="number" inputmode="decimal" value="2200" min="0" step="50"></label>
+   <label>Insurance ($ per year)<input id="insurance" type="number" inputmode="decimal" value="12000" min="0" step="100"></label>
+   <label>Permits and licenses ($ per year)<input id="permits" type="number" inputmode="decimal" value="2000" min="0" step="50"></label>
+   <label>ELD / compliance software ($ per month)<input id="eld" type="number" inputmode="decimal" value="40" min="0" step="5"></label>
+   <label>Other fixed costs ($ per month)<input id="otherFixed" type="number" inputmode="decimal" value="250" min="0" step="10"></label>
+   <label>Fuel price ($ per gallon)<input id="fuelPrice" type="number" inputmode="decimal" value="5.90" min="0" step="0.05"></label>
+   <label>Average fuel economy (MPG)<input id="mpg" type="number" inputmode="decimal" value="7.0" min="0" step="0.1"></label>
+   <label>Maintenance and repairs ($ per mile)<input id="maint" type="number" inputmode="decimal" value="0.20" min="0" step="0.01"></label>
+   <label>Tires ($ per mile)<input id="tires" type="number" inputmode="decimal" value="0.05" min="0" step="0.01"></label>
+   <label>Tolls ($ per mile, annual average)<input id="tolls" type="number" inputmode="decimal" value="0.04" min="0" step="0.01"></label>
+   <label>Driver pay ($ per mile, all miles)<input id="driver" type="number" inputmode="decimal" value="0" min="0" step="0.05"></label>
+   <label>Load rate ($ per loaded mile)<input id="rate" type="number" inputmode="decimal" value="2.40" min="0" step="0.05"></label>
+   <label>Loaded miles on this load<input id="loaded" type="number" inputmode="decimal" value="500" min="0" step="10"></label>
+   <label>Deadhead miles on this load<input id="deadhead" type="number" inputmode="decimal" value="80" min="0" step="10"></label>
+  </div>
+  <div class="results" aria-live="polite">
+   <div><span>Annual fixed costs</span><strong id="o-fixed-annual">-</strong></div>
+   <div><span>Fuel cost per mile</span><strong id="o-fuel">-</strong></div>
+   <div><span>Variable cost per mile</span><strong id="o-variable">-</strong></div>
+   <div><span>Fixed cost per mile</span><strong id="o-fixed">-</strong></div>
+   <div><span>Driver pay per mile</span><strong id="o-driver">-</strong></div>
+   <div><span>Total cost per mile</span><strong id="o-total">-</strong></div>
+   <div><span>Break-even per total mile</span><strong id="o-be-total">-</strong></div>
+   <div><span>Break-even per loaded mile</span><strong id="o-be-loaded">-</strong></div>
+   <div><span>Trip miles (loaded + deadhead)</span><strong id="o-trip">-</strong></div>
+   <div><span>Load revenue</span><strong id="o-revenue">-</strong></div>
+   <div><span>Load cost</span><strong id="o-load-cost">-</strong></div>
+   <div><span>Load profit</span><strong id="o-profit">-</strong></div>
+   <div><span>Break-even rate for this load</span><strong id="o-load-be">-</strong></div>
+  </div>
+  <p class="note">Example values shown; use your own. This page applies your average tolls per mile to the trip and pays a driver on all miles if you enter a per-mile amount. Annual miles of 0 leaves cost per mile as n/a. Leave driver pay at $0 if you are a solo owner-operator and want profit to be what is left for you.</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>How it's calculated</h2>
+ <ul>
+  <li><b>Annual fixed costs</b> = 12 &times; (truck payment + ELD + other monthly fixed costs) + insurance + permits.</li>
+  <li><b>Fuel cost per mile</b> = fuel price / MPG (0 if MPG is 0). <b>Variable cost per mile</b> = fuel + maintenance + tires + average tolls.</li>
+  <li><b>Fixed cost per mile</b> = annual fixed costs / annual miles (n/a if annual miles is 0).</li>
+  <li><b>Total cost per mile</b> = fixed cost per mile + variable cost per mile + driver pay per mile.</li>
+  <li><b>Break-even rate per total mile</b> = total cost per mile. <b>Break-even rate per loaded mile</b> = total cost per mile / loaded-mile share (or “Not reachable” if that share is 0).</li>
+  <li><b>Trip miles</b> = loaded miles + deadhead miles. <b>Load revenue</b> = loaded miles &times; the per-mile rate.</li>
+  <li><b>Load cost</b> = total cost per mile &times; trip miles. <b>Load profit</b> = revenue &minus; load cost.</li>
+  <li><b>Break-even rate for this load</b> = load cost / loaded miles (or “Not reachable” if loaded miles is 0).</li>
+ </ul>
+ <p class="note"><b>Not financial advice.</b> This is an educational estimate based only on what you enter. It ignores income taxes, depreciation, fuel-tax credits, detention, factoring and a fuel surcharge as a separate line. Verify numbers and talk to qualified professionals before you bid a load or change how you operate.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Need two scenarios, factoring or a flat-rate load?</h2>
+ <p>The Quoteloom <b>Trucking Cost-Per-Mile &amp; Load Profit Calculator</b> spreadsheet lets you compare two scenarios side by side, enter tire-set cost and life, pay a driver per mile, as a percent of revenue or on an annual salary, include factoring, and price up to three loads at a per-mile or flat rate with trip-specific tolls.</p>
+ <button class="cta disabled" type="button" disabled data-buy="trucking-cost-per-mile" data-buy-label="Get the trucking cost-per-mile calculator: US$15">Coming soon: US$15</button>
+ <p><a href="/guides/how-to-calculate-trucking-cost-per-mile/">Read the guide on calculating trucking cost per mile</a></p>
+ <p><a href="/#trucking-cost-per-mile">More about the spreadsheet</a></p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Frequently asked questions</h2>
+ <div class="faq">
+  <h3>How do I calculate trucking cost per mile?</h3>
+  <p>Add up annual fixed costs (truck payment, insurance, permits, ELD and other monthly costs) and divide by your annual miles, including empty miles. Add variable costs per mile: fuel price divided by MPG, plus maintenance, tires and average tolls, plus any per-mile driver pay. The sum is your cost per mile. It is an estimate from the numbers you enter, not a market average.</p>
+  <h3>What is a break-even rate per loaded mile?</h3>
+  <p>You are usually paid only on loaded miles, but you still burn fuel and time on deadhead. The break-even loaded rate is your cost per mile divided by the share of miles that are loaded. If 16% of your miles are empty, you need a higher rate on the paid miles to cover that empty running.</p>
+  <h3>Should I include my own pay as a cost?</h3>
+  <p>A solo owner-operator can leave driver pay at $0 and treat the calculator’s profit as the pay left after running the truck. If you hire a driver, or you want a target wage counted as a cost, enter a per-mile amount. The spreadsheet also supports a percent of revenue or an annual salary.</p>
+  <h3>What is on this page versus the spreadsheet?</h3>
+  <p>This free calculator uses one set of annual costs, average tolls per mile, per-mile driver pay and one load with a per-mile rate. The Quoteloom spreadsheet adds two scenarios side by side, tire-set cost and life, percent-of-revenue or salary driver pay, factoring, flat-rate loads, trip-specific tolls and an annual profit view.</p>
+  <h3>Is this financial advice?</h3>
+  <p>No. It is an educational estimate that uses only the numbers you enter, plus the example figures shown on the page. It is not financial, tax, legal or business advice, and it is not a survey of freight rates or operating costs. Fuel prices, insurance and freight rates change. Verify every number and consult qualified professionals before you bid a load, lease a truck or change how you operate.</p>
+ </div>
+ <p class="note">Other free calculators: <a href="/pressure-washing-price-calculator/">pressure washing</a>, <a href="/house-cleaning-price-calculator/">house cleaning</a>, <a href="/lawn-care-price-calculator/">lawn care</a>, <a href="/rental-calculator/">rental cash flow</a>, <a href="/airbnb-profit-calculator/">Airbnb profit</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>
