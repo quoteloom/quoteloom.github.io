@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>How to Calculate Rental Property Cash Flow and Cap Rate | Quoteloom</title>
+<meta name="description" content="Calculate rental property cash flow, NOI, cap rate and cash-on-cash return from rent, vacancy, operating expenses and the mortgage, with a fully worked example. Educational estimate; not financial advice. Cites Census, Freddie Mac, NAA and IRS sources.">
+<link rel="canonical" href="https://quoteloom.github.io/guides/rental-property-cash-flow/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="How to Calculate Rental Property Cash Flow and Cap Rate">
+<meta property="og:description" content="The cash-flow formulas, a fully worked example, and why rent minus the mortgage is not the same as cash flow.">
+<meta property="og:url" content="https://quoteloom.github.io/guides/rental-property-cash-flow/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-rental-analyzer.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Calculate Rental Property Cash Flow and Cap Rate", "description": "Calculate rental property cash flow, NOI, cap rate and cash-on-cash return from rent, vacancy, operating expenses and the mortgage, with a fully worked example. Educational estimate; not financial advice. Cites Census, Freddie Mac, NAA and IRS sources.", "datePublished": "2026-11-22", "dateModified": "2026-11-22", "author": {"@type": "Organization", "name": "Quoteloom", "url": "https://quoteloom.github.io/"}, "publisher": {"@type": "Organization", "name": "Quoteloom", "url": "https://quoteloom.github.io/", "logo": {"@type": "ImageObject", "url": "https://quoteloom.github.io/assets/apple-touch-icon.png"}}, "image": "https://quoteloom.github.io/assets/preview-rental-analyzer.png", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://quoteloom.github.io/guides/rental-property-cash-flow/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://quoteloom.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://quoteloom.github.io/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to Calculate Rental Property Cash Flow and Cap Rate", "item": "https://quoteloom.github.io/guides/rental-property-cash-flow/"}]}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><nav class="nav"><a href="/guides/">Guides</a><a href="/#free-calculators">Free calculators</a></nav></div></header>
+<main>
+<div class="hero article"><div class="wrap" style="display:block">
+ <p class="breadcrumbs"><a href="/">Home</a> · <a href="/guides/">Guides</a> · How to calculate rental property cash flow and cap rate</p>
+ <h1>How to calculate rental property cash flow and cap rate</h1>
+ <p class="meta">Published 2026-11-22 · Quoteloom</p>
+</div></div>
+<article class="guide"><div class="wrap">
+
+<p><b>Not financial, investment, tax or legal advice.</b> A rental can look fine if you only subtract the mortgage from the rent, and still leave almost nothing — or go negative — once vacancy and operating expenses are in the picture. This guide walks through a cash-flow model you can compute by hand or in the <a href="/rental-calculator/">free Quoteloom rental cash flow calculator</a>. The worked example uses the calculator’s example inputs. They are not market rents, not a typical cap rate, and not a deal you should copy.</p>
+<p>Figures below come only from sources we opened, linked in the source list: the Census Bureau’s third-quarter 2026 vacancy release, Freddie Mac’s mortgage survey, the National Apartment Association’s CAM formula guide, Investopedia’s NOI and cap-rate entries, J.P. Morgan’s cash-on-cash note, and IRS Publication 527 (2025). Official averages are not your vacancy rate or the rate a lender will quote you on an investment property.</p>
+
+<h2>The identities: NOI, cash flow, cap rate, cash-on-cash</h2>
+<p>Keep financing out of operating income, then bring the loan back when you measure cash in your pocket. That split is what makes two properties with different mortgages comparable. The National Apartment Association’s CAM formula guide defines net operating income as effective gross income minus operating expenses, “before mortgage debt service and capital expenditures (or replace reserve payments) are deducted.” Investopedia’s NOI entry says the same in plainer language: revenue minus operating expenses, excluding principal and interest, capital expenditures, depreciation and income tax.</p>
+<p>The free calculator uses a simplified single-unit version of those identities:</p>
+<ul>
+<li><b>Loan amount</b> = purchase price × (1 − down-payment percent).</li>
+<li><b>Monthly mortgage payment</b> (principal and interest) = the standard fully amortizing payment on that loan, or loan / number of months if the interest rate is 0. If there is no loan, the payment is $0.</li>
+<li><b>Monthly NOI</b> = monthly rent × (1 − vacancy rate) − monthly operating expenses.</li>
+<li><b>Monthly cash flow</b> = monthly NOI − monthly mortgage payment.</li>
+<li><b>Cap rate</b> = (monthly NOI × 12) / purchase price.</li>
+<li><b>Cash-on-cash return</b> = (monthly cash flow × 12) / (down payment + closing costs).</li>
+</ul>
+<p>NAA writes cap rate as NOI ÷ purchase price, and cash-on-cash return as cash flow ÷ down payment (or initial equity). J.P. Morgan’s commercial real estate note uses the same cash-on-cash formula with pre-tax annual cash flow defined as NOI minus debt service, and it includes down payment, closing costs and initial improvements in cash invested. The free calculator includes the down payment and closing costs; it does not have a separate “initial repairs” box. If you will spend money on work before the first lease, add that amount to closing costs, or use the spreadsheet, which can split expense lines and compare up to three properties.</p>
+<p>Two traps follow directly from those definitions. First, property taxes, insurance, HOA dues, maintenance, management and owner-paid utilities are operating expenses, not “the mortgage.” If your bank payment is PITI (principal, interest, taxes and insurance), do not also put the same taxes and insurance in operating expenses, and do not leave them out of both places. Second, NAA’s full cash-flow formula is NOI minus debt service minus capital expenditures minus replacement reserves. The free calculator subtracts only the mortgage payment. A roof, an HVAC replacement or a reserve you should be funding will not appear unless you put them in the expense line yourself.</p>
+
+<h2>Context from official sources — and what it is not</h2>
+<p>A vacancy allowance is a planning number for lost rent, not a forecast, and it is not the same statistic as the Census rental vacancy rate. The Census Bureau’s third-quarter 2026 Housing Vacancies and Homeownership release, dated October 28, 2026, reported a national rental vacancy rate of <b>7.6 percent</b>, higher than 7.1 percent in the third quarter of 2025 and 7.3 percent in the second quarter of 2026. That figure is the share of the rental inventory vacant and for rent, nationwide. Your building and your city can differ. The calculator’s example uses a 6 percent allowance so the formula is visible; that is not a recommended rate and it is not the Census number.</p>
+<p>Mortgage rates move, and a survey rate is often not the rate on an investment loan. Freddie Mac’s Primary Mortgage Market Survey for the week of November 19, 2026, put the 30-year fixed-rate mortgage at <b>7.28 percent</b>, up from 7.11 percent the prior week and 6.26 percent a year earlier. The 15-year fixed rate averaged 6.66 percent. The survey is built from conventional, conforming, single-family purchase applications; the historical PMMS profile is an owner-occupied one-unit loan with good or excellent credit and about 20 percent down. It is not a quote for a 25 percent-down investment property, which often prices higher. The calculator’s example uses 7 percent so you can see the payment math. Replace it with the rate you are actually offered.</p>
+<p>Investopedia notes that cap rate is most useful for comparing similar properties, not as a sole measure of a deal, because it ignores leverage, the time value of money and future improvements. J.P. Morgan makes the matching point about cash-on-cash return: it describes one period, usually a year, and does not capture loan paydown, appreciation, later capital spending or a sale. Neither source names a rate you should require.</p>
+
+<h2>Worked example (calculator defaults, not a recommended deal)</h2>
+<p>The free calculator ships with this clearly labeled example so you can see the math and then overwrite every input.</p>
+<table>
+<thead><tr><th>Example input</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Purchase price</td><td>$240,000</td></tr>
+<tr><td>Closing costs</td><td>$12,200</td></tr>
+<tr><td>Down payment</td><td>25% ($60,000)</td></tr>
+<tr><td>Interest rate / term</td><td>7% / 30 years</td></tr>
+<tr><td>Monthly rent</td><td>$2,100</td></tr>
+<tr><td>Vacancy allowance</td><td>6%</td></tr>
+<tr><td>Monthly operating expenses</td><td>$764</td></tr>
+</tbody>
+</table>
+<p>The loan is $240,000 × 0.75 = <b>$180,000</b>. The monthly principal-and-interest payment on a 30-year loan at 7% is <b>$1,197.54</b>.</p>
+<p>Effective monthly rent after the 6% vacancy allowance is $2,100 × 0.94 = $1,974. Monthly NOI = $1,974 − $764 = <b>$1,210.00</b>, or <b>$14,520 a year</b>.</p>
+<p>Monthly cash flow = $1,210.00 − $1,197.54 = <b>$12.46</b>, or about <b>$149 a year</b>.</p>
+<p>Cap rate = $14,520 / $240,000 = <b>6.05%</b>. Cash invested = $60,000 + $12,200 = <b>$72,200</b>. Cash-on-cash return = $149 / $72,200 = <b>0.21%</b>.</p>
+<p>The property produces a 6.05% cap rate and almost no cash after debt service. That is the lesson, not a rounding error. Rent minus the mortgage would have been $2,100 − $1,197.54 = $902.46 a month and would have looked comfortable. Vacancy and operating expenses ate nearly all of it. A cap rate above the loan rate also does not guarantee cash-on-cash return: interest is charged only on the $180,000 loan, but cash-on-cash is measured against the $72,200 you actually wrote checks for, and the vacancy and expense lines sit in between.</p>
+
+<h2>Change one input and the leftover can disappear</h2>
+<p>Leave every other example input as it is and use Freddie Mac’s November 19, 2026, 30-year average of 7.28% instead of 7%. The payment rises to $1,231.58. Monthly cash flow becomes <b>−$21.58</b>, or about <b>−$259 a year</b>, and cash-on-cash return turns slightly negative. Cap rate does not move, because cap rate ignores the loan. That is why you need both numbers.</p>
+<p>Alternatively, keep the 7% loan and raise the vacancy allowance from 6% to the Census national rental vacancy rate of 7.6%. Monthly NOI falls to $1,176.40. Cash flow becomes <b>−$21.14</b> a month. This is not a prediction that this property will be vacant 7.6% of the year. It is a sensitivity check: a planning allowance a point and a half higher is enough, on these inputs, to erase a thin leftover.</p>
+<p>Other quick checks on the same example, using common rules of thumb (these are screens, not investment tests):</p>
+<ul>
+<li><b>Debt service coverage (DSCR)</b> = monthly NOI / monthly debt service = $1,210.00 / $1,197.54 = <b>1.01</b>. There is almost no cushion. Lenders often want a higher ratio; the exact hurdle is theirs, not a number from this page.</li>
+<li><b>Gross rent multiplier</b> = purchase price / (monthly rent × 12) = $240,000 / $25,200 = <b>9.52</b>.</li>
+<li><b>The “1% rule”</b> asks whether monthly rent is at least 1% of the purchase price. Here $2,100 / $240,000 = <b>0.875%</b>, so the example fails that screen. Failing or passing a rule of thumb is not a buy or sell signal.</li>
+</ul>
+<p>The spreadsheet reports DSCR, GRM, the 1% rule, break-even occupancy and a 10-year projection. NAA defines break-even occupancy as (operating expenses + debt service + replacement reserves) ÷ effective gross income: the occupancy you need to cover those costs. The free page does not compute that line.</p>
+
+<h2>What this model leaves out</h2>
+<p>Income taxes, depreciation and selling costs are not in the free calculator or in the figures above. Depreciation is a tax concept, not a monthly check. IRS Publication 527 (2025) states that residential rental buildings and their structural components are depreciated under MACRS general depreciation system over <b>27.5 years</b>, straight-line, with a mid-month convention, and that land is not depreciated. That publication is about preparing tax returns; it is not a reason to treat depreciation as cash, and this guide is not tax advice. The model also leaves out refinancing, rent growth, expense inflation and vacancies that last longer than your allowance.</p>
+<p>If you are comparing a long-term rental with a short-term listing of the same unit, use this calculator for the long-term case and the <a href="/airbnb-profit-calculator/">free Airbnb profit calculator</a> for the short-term case; the <a href="/guides/calculate-airbnb-short-term-rental-profit/">Airbnb profit guide</a> covers platform fees. They are different businesses. Open the <a href="/rental-calculator/">free calculator</a> and replace the example with a real asking price, a rent you can support, a vacancy allowance you can defend, and a loan quote you have actually been given. Side-by-side deals and a 10-year projection are in the spreadsheet.</p>
+
+<div class="cta-box">
+<p><b>Run the cash flow, then look at cap rate and cash-on-cash together.</b> The free calculator uses the formulas in this guide. The spreadsheet compares up to three properties, with DSCR, GRM, the 1% rule, break-even occupancy and a 10-year projection.</p>
+<p><a href="/rental-calculator/">Open the free rental cash flow calculator</a></p>
+<p><button class="cta disabled" type="button" disabled data-buy="rental-analyzer" data-buy-label="Get the rental analyzer spreadsheet: US$15">Coming soon: US$15</button></p>
+</div>
+
+<p class="note"><b>Not financial, investment, tax or legal advice.</b> This guide is an educational walkthrough of a cash-flow model. It does not tell you whether to buy, hold, finance or rent out a property. Official averages describe a national inventory or a survey of a particular kind of mortgage application. Verify every number and consult qualified professionals before you buy, borrow or list a property.</p>
+
+<h2>Related guides</h2>
+<ul>
+<li><a href="/guides/calculate-airbnb-short-term-rental-profit/">Airbnb profit: how to calculate if a short-term rental will make money</a></li>
+<li><a href="/airbnb-profit-calculator/">Free Airbnb profit calculator</a></li>
+</ul>
+
+<h2>Sources</h2>
+<ul class="sources">
+<li>U.S. Census Bureau, “Quarterly Residential Vacancies and Homeownership, Third Quarter 2026,” released October 28, 2026 (CBDRB-FY26-027/CB26-161). <a href="https://www.census.gov/housing/hvs/current/">https://www.census.gov/housing/hvs/current/</a>. Figures cited: national rental vacancy rate 7.6% in 2026 Q3, versus 7.1% in 2025 Q3 and 7.3% in 2026 Q2.</li>
+<li>Freddie Mac, Primary Mortgage Market Survey, week of November 19, 2026. <a href="https://www.freddiemac.com/pmms">https://www.freddiemac.com/pmms</a>. Figures cited: 30-year fixed-rate mortgage 7.28%, up from 7.11% the prior week and 6.26% a year earlier; 15-year fixed-rate mortgage 6.66%. Survey covers conventional, conforming single-family purchase applications; historical PMMS profile is an owner-occupied one-unit loan with good or excellent credit and about 20% down.</li>
+<li>National Apartment Association, “CAM Financial Terms and Formulas Quick Guide.” <a href="https://naahq.org/cam-terms-formulas">https://naahq.org/cam-terms-formulas</a>. Formulas cited: NOI = EGI − OE (before debt service and capital expenditures or replacement reserves); cap rate = NOI ÷ purchase price; cash flow = NOI − DS − CE − RR; cash-on-cash return = cash flow ÷ down payment or initial equity; break-even occupancy = (OE + DS + RR) ÷ EGI.</li>
+<li>Investopedia, “Maximize Real Estate Profits: How to Calculate Net Operating Income (NOI),” updated May 8, 2026. <a href="https://www.investopedia.com/terms/n/noi.asp">https://www.investopedia.com/terms/n/noi.asp</a>. NOI as revenue minus operating expenses, excluding principal and interest, capital expenditures, depreciation and income tax; cap rate = NOI / property cost; NOI also used in debt-coverage measures.</li>
+<li>Investopedia, “Capitalization Rate: Cap Rate Defined With Formula and Examples,” updated January 13, 2026. <a href="https://www.investopedia.com/terms/c/capitalizationrate.asp">https://www.investopedia.com/terms/c/capitalizationrate.asp</a>. Cap rate = NOI / current market value or property asset value; useful for comparing similar properties; does not account for leverage, time value of money or future cash flows from improvements.</li>
+<li>J.P. Morgan, “Using the cash-on-cash return in real estate,” August 12, 2024. <a href="https://www.jpmorgan.com/insights/real-estate/commercial-term-lending/cash-on-cash-return-cocr-in-real-estate">https://www.jpmorgan.com/insights/real-estate/commercial-term-lending/cash-on-cash-return-cocr-in-real-estate</a>. Cash-on-cash return = annual pre-tax cash flow / total cash invested; pre-tax cash flow = NOI − debt service; cash invested may include down payment, closing costs and initial improvements; does not capture paydown, appreciation or a sale.</li>
+<li>Internal Revenue Service, Publication 527 (2025), Residential Rental Property. <a href="https://www.irs.gov/publications/p527">https://www.irs.gov/publications/p527</a>. Under MACRS GDS, residential rental buildings and structural components are depreciated over 27.5 years, straight-line, with a mid-month convention; land is not depreciated. Cited only to explain why depreciation is omitted from cash flow; not tax advice.</li>
+</ul>
+<p class="note">Example calculator inputs are not market data. This page is not financial, investment, tax or legal advice and not a prediction of rent, occupancy or return.</p>
+
+</div></article>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>
