@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/quote-maker/quote-maker.css">
+<title>Free Invoice Maker for Home Service Jobs (PDF) | Quoteloom</title>
+<meta name="description" content="Make a branded PDF invoice in your browser: import a quote from the Quoteloom Quote Maker or type your own lines, add tax and amount already paid, and download the PDF. Free, no signup.">
+<link rel="canonical" href="https://quoteloom.github.io/invoice-maker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free Invoice Maker for Home Service Businesses">
+<meta property="og:description" content="Import a quote, add tax and amount already paid, and download a clean PDF invoice. No signup.">
+<meta property="og:url" content="https://quoteloom.github.io/invoice-maker/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/pressure-washing.js" defer></script>
+<script src="/assets/quote-maker/quote-core.js" defer></script>
+<script src="/assets/invoice-maker/invoice-core.js" defer></script>
+<script src="/assets/invoice-maker/pdf.js" defer></script>
+<script src="/assets/vendor/jspdf.umd.min.js" defer></script>
+<script src="/assets/invoice-maker/app.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Quoteloom Invoice Maker","url":"https://quoteloom.github.io/invoice-maker/","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","description":"Make branded PDF invoices for home service jobs in your browser. Import a quote, add tax and amount already paid, and download a PDF.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><nav class="nav"><a href="/guides/">Guides</a><a href="/#free-calculators">Free calculators</a></nav></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <span class="pill">Free · works in your browser · no signup</span>
+ <h1>Invoice Maker: branded PDF invoices for home service jobs</h1>
+ <p>Import a quote from the <a href="/quote-maker/" style="color:#c9d8e6">Quote Maker</a> (or type your own line items), add tax and what the customer has already paid, and download a clean PDF invoice with the amount due and the due date.</p>
+ <p class="note" style="color:#c9d8e6">Everything you type stays in this browser (saved in its local storage). Nothing is uploaded to us. This is a billing document you fill in yourself; it does not send invoices, collect payments, or look up tax rates.</p>
+</div></div>
+
+<section><div class="wrap qm">
+ <div id="qm-plan" class="plan-bar"></div>
+
+ <details class="qm-box" id="biz-box" open>
+  <summary><h2>1. Your business</h2></summary>
+  <div class="fields">
+   <label>Business name<input id="b-name" autocomplete="organization"></label>
+   <label>Your name<input id="b-contact" autocomplete="name"></label>
+   <label>Phone<input id="b-phone" type="tel" autocomplete="tel"></label>
+   <label>Email<input id="b-email" type="email" autocomplete="email"></label>
+   <label>Website<input id="b-website" autocomplete="url"></label>
+   <label>License / insurance line (optional)<input id="b-license" placeholder="e.g. Fully insured"></label>
+   <label class="wide">Address<input id="b-address" autocomplete="street-address"></label>
+   <label>Logo (PNG or JPG)<input id="b-logo" type="file" accept="image/png,image/jpeg"></label>
+   <div class="logo-prev"><img id="b-logo-prev" alt="" hidden><button type="button" id="b-logo-clear" class="link" hidden>Remove logo</button></div>
+  </div>
+  <p class="note">Saved automatically in this browser as you type, and shared with the <a href="/quote-maker/">Quote Maker</a>. <button type="button" id="b-clear" class="link">Clear business profile</button></p>
+ </details>
+
+ <details class="qm-box" open>
+  <summary><h2>2. Customer and invoice</h2></summary>
+  <div class="fields">
+   <label>Customer name<input id="c-name"></label>
+   <label>Customer phone<input id="c-phone" type="tel"></label>
+   <label>Customer email<input id="c-email" type="email"></label>
+   <label class="wide">Job address<input id="c-address"></label>
+   <label class="wide">Job description (optional)<input id="c-job" placeholder="e.g. Spring house wash and driveway"></label>
+   <label>Invoice #<input id="m-number"></label>
+   <label>Invoice date<input id="m-date" type="date"></label>
+   <label>Payment terms<select id="m-terms"></select></label>
+   <label>Due date<div id="o-duedate" style="padding:10px 0 0">—</div></label>
+   <label>Related quote # (optional)<input id="m-ref" placeholder="e.g. Q-20261127-001"></label>
+  </div>
+ </details>
+
+ <details class="qm-box" open>
+  <summary><h2>3. Line items</h2></summary>
+  <p><button type="button" class="btn" id="a-import">Import from Quote Maker</button> <span class="note">Uses the quote saved in this browser. The quote's deposit becomes the amount already paid, which you can edit.</span></p>
+  <div class="items-wrap">
+   <table class="items" id="items">
+    <thead><tr><th>Description</th><th>Qty</th><th>Unit</th><th>Rate ($)</th><th>Min ($)</th><th>Amount</th><th></th></tr></thead>
+    <tbody></tbody>
+   </table>
+  </div>
+  <p><button type="button" class="btn" id="i-add">+ Add a line</button> <button type="button" class="link" id="i-clear">Clear all lines</button></p>
+
+  <div class="fields">
+   <label>Discount (%)<input id="t-discount" type="number" min="0" max="100" step="0.5" value="0"></label>
+   <label>Tax label<input id="t-taxlabel" value="Sales tax"></label>
+   <label>Tax rate (%)<input id="t-tax" type="number" min="0" max="100" step="0.001" value="0"></label>
+   <label>Already paid ($)<input id="t-paid" type="number" min="0" step="0.01" value="0" inputmode="decimal"></label>
+  </div>
+  <div class="results qm-totals">
+   <div><span>Subtotal</span><strong id="o-sub">$0.00</strong></div>
+   <div><span>Discount</span><strong id="o-disc">$0.00</strong></div>
+   <div><span>Tax</span><strong id="o-tax">$0.00</strong></div>
+   <div><span>Total</span><strong id="o-total">$0.00</strong></div>
+   <div><span>Already paid</span><strong id="o-paid">$0.00</strong></div>
+   <div><span>Amount due</span><strong id="o-due">$0.00</strong></div>
+  </div>
+  <p class="note">Check your local sales tax rules: some states and cities tax services like these and some do not. This tool does not look up tax rates. “Already paid” is capped at the invoice total.</p>
+ </details>
+
+ <details class="qm-box" open>
+  <summary><h2>4. Notes, terms and look</h2></summary>
+  <div class="fields">
+   <label class="wide">Notes to the customer<textarea id="n-notes" rows="3" placeholder="e.g. Thank you for the booking deposit."></textarea></label>
+   <label class="wide">Terms<textarea id="n-terms" rows="3"></textarea></label>
+   <label>Paper size<select id="s-page"><option value="letter">US Letter</option><option value="a4">A4</option></select></label>
+   <label>Brand color <em class="pro-tag">Pro</em><input id="s-color" type="color" value="#1F4E78"></label>
+  </div>
+  <p class="note">The default terms are a plain starting point, not legal advice. Change them to match how you actually get paid.</p>
+ </details>
+
+ <div class="qm-actions">
+  <button type="button" class="cta" id="a-pdf">Download PDF invoice</button>
+  <button type="button" class="btn" id="a-next">Start next invoice</button>
+  <button type="button" class="link" id="a-sample">Load sample data</button>
+  <p class="note" id="a-msg"></p>
+ </div>
+</div></section>
+
+<section id="pro"><div class="wrap">
+ <h2>Quote Maker Pro also unlocks Invoice Maker</h2>
+ <div class="grid">
+  <div>
+   <p>The free Invoice Maker does the whole job: logo, line items, tax, amount already paid, due date and a downloadable PDF. Free PDFs carry a small "Made with Quoteloom" line at the bottom.</p>
+   <p><b>Pro (US$7/month, cancel any time on Gumroad)</b> is the same membership as <a href="/quote-maker/">Quote Maker Pro</a>. One license key, kept in this browser, removes the line on both quote and invoice PDFs and unlocks your brand color. There is no separate invoice subscription.</p>
+   <button class="cta disabled" type="button" disabled data-buy="quote-maker-pro" data-buy-label="Get Quote Maker Pro: US$7/month">Pro coming soon: US$7/month</button>
+  </div>
+  <div class="qm-box lic">
+   <h3>Already have Pro?</h3>
+   <p class="note">Paste the license key from your Gumroad receipt. The key is checked with Gumroad and stored only in this browser, and it is the same key the Quote Maker uses.</p>
+   <div class="fields"><label class="wide">License key<input id="l-key" autocomplete="off" spellcheck="false"></label></div>
+   <p><button type="button" class="btn" id="l-verify">Activate Pro</button> <button type="button" class="link" id="l-remove" hidden>Remove key from this browser</button></p>
+   <p class="note" id="l-msg"></p>
+  </div>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Frequently asked questions</h2>
+ <div class="faq">
+  <h3>Is the Invoice Maker really free?</h3>
+  <p>Yes. You can make and download as many PDF invoices as you like. Free invoices include a small "Made with Quoteloom" line at the bottom. <a href="/quote-maker/#pro">Quote Maker Pro</a> (US$7/month) removes that line on both quotes and invoices and lets you pick a brand color.</p>
+  <h3>Where is my data stored?</h3>
+  <p>In your browser's local storage on this device. Quoteloom has no server and no database, so we never see your customers or prices. Clearing your browser data removes it, and it does not sync to your other devices. Your business profile and Pro key are shared with the Quote Maker on this same device. If you activate Pro, your license key is sent to Gumroad (our payment provider) to check it.</p>
+  <h3>How do I turn a quote into an invoice?</h3>
+  <p>Make the quote in the <a href="/quote-maker/">Quote Maker</a> (it is saved in this browser as you type). Open this page and click "Import from Quote Maker." Line items, customer, discount, tax and notes come across. If the quote had a deposit, that amount is filled in as already paid; you can change it if the customer paid a different amount.</p>
+  <h3>Is this invoice a tax document or a contract?</h3>
+  <p>No. The tool only formats the prices, dates and terms you enter. It is not tax, legal or accounting advice, and it does not file anything or collect payment. Check what your invoices need to include where you work.</p>
+ </div>
+ <p class="note">Also free: <a href="/quote-maker/">Quote Maker</a>, <a href="/pressure-washing-price-calculator/">pressure washing</a>, <a href="/house-cleaning-price-calculator/">house cleaning</a> and <a href="/lawn-care-price-calculator/">lawn care</a> calculators.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a></p><p>Payments are handled by Gumroad. PDF generation uses <a href="https://github.com/parallax/jsPDF">jsPDF</a> (MIT license), served from this site. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>
