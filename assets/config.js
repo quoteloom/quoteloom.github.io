@@ -11,6 +11,7 @@ window.QUOTELOOM_CONFIG = {
     "trucking-cost-per-mile": "https://quoteloom.gumroad.com/l/trucking-cost-per-mile-calculator",
     "home-services-bundle": "https://quoteloom.gumroad.com/l/home-services-calculator-bundle",
     "property-investor-bundle": "https://quoteloom.gumroad.com/l/property-investor-calculator-bundle",
+    "window-gutter": "",
     // Quote Maker Pro membership page, e.g. "https://quoteloom.gumroad.com/l/quote-maker-pro". Empty = "coming soon".
     "quote-maker-pro": "https://quoteloom.gumroad.com/l/quote-maker-pro"
   },
