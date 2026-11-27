@@ -52,6 +52,11 @@
   if (typeof module !== "undefined" && module.exports) {
     module.exports = { pressureWash: pressureWash, SERVICES: SERVICES };
   }
+  if (typeof window !== "undefined") {
+    window.QuoteloomCalc = window.QuoteloomCalc || {};
+    var api = { pressureWash: pressureWash, PW_SERVICES: SERVICES };
+    for (var k in api) window.QuoteloomCalc[k] = api[k];
+  }
   if (typeof document === "undefined") return;
 
   var ids = ["house", "driveway", "deck", "roof", "gutters", "discountPct", "miles", "cpm", "setupHours", "laborRate", "crew", "targetPct"];
@@ -79,6 +84,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    if (!document.getElementById("house")) return; // calculator form not on this page (e.g. the quote maker)
     ids.forEach(function (id) { document.getElementById(id).addEventListener("input", run); });
     run();
   });

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/quote-maker/quote-maker.css">
+<title>Free Quote Maker for Pressure Washing, Cleaning &amp; Lawn Care (PDF) | Quoteloom</title>
+<meta name="description" content="Make a branded PDF quote in your browser: add your logo and business details, build line items from our pressure washing, house cleaning and lawn care calculators or your own rates, and download the PDF. Free, no signup.">
+<link rel="canonical" href="https://quoteloom.github.io/quote-maker/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free Quote Maker for Home Service Businesses">
+<meta property="og:description" content="Logo, line items, tax, deposit and a clean PDF quote, made in your browser. No signup.">
+<meta property="og:url" content="https://quoteloom.github.io/quote-maker/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/pressure-washing.js" defer></script>
+<script src="/assets/house-cleaning.js" defer></script>
+<script src="/assets/lawn-care.js" defer></script>
+<script src="/assets/quote-maker/quote-core.js" defer></script>
+<script src="/assets/quote-maker/pdf.js" defer></script>
+<script src="/assets/vendor/jspdf.umd.min.js" defer></script>
+<script src="/assets/quote-maker/app.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Quoteloom Quote Maker","url":"https://quoteloom.github.io/quote-maker/","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","description":"Make branded PDF quotes for pressure washing, house cleaning and lawn care jobs in your browser.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><nav class="nav"><a href="/guides/">Guides</a><a href="/#free-calculators">Free calculators</a></nav></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <span class="pill">Free · works in your browser · no signup</span>
+ <h1>Quote Maker: branded PDF quotes for home service jobs</h1>
+ <p>Add your logo and contact details once, build the line items from our pressure washing, house cleaning or lawn care calculators (or type your own rates), and download a clean PDF quote to send your customer.</p>
+ <p class="note" style="color:#c9d8e6">Everything you type stays in this browser (saved in its local storage). Nothing is uploaded to us.</p>
+</div></div>
+
+<section><div class="wrap qm">
+ <div id="qm-plan" class="plan-bar"></div>
+
+ <details class="qm-box" id="biz-box" open>
+  <summary><h2>1. Your business</h2></summary>
+  <div class="fields">
+   <label>Business name<input id="b-name" autocomplete="organization"></label>
+   <label>Your name<input id="b-contact" autocomplete="name"></label>
+   <label>Phone<input id="b-phone" type="tel" autocomplete="tel"></label>
+   <label>Email<input id="b-email" type="email" autocomplete="email"></label>
+   <label>Website<input id="b-website" autocomplete="url"></label>
+   <label>License / insurance line (optional)<input id="b-license" placeholder="e.g. Fully insured"></label>
+   <label class="wide">Address<input id="b-address" autocomplete="street-address"></label>
+   <label>Logo (PNG or JPG)<input id="b-logo" type="file" accept="image/png,image/jpeg"></label>
+   <div class="logo-prev"><img id="b-logo-prev" alt="" hidden><button type="button" id="b-logo-clear" class="link" hidden>Remove logo</button></div>
+  </div>
+  <p class="note">Saved automatically in this browser as you type. <button type="button" id="b-clear" class="link">Clear business profile</button></p>
+ </details>
+
+ <details class="qm-box" open>
+  <summary><h2>2. Customer and job</h2></summary>
+  <div class="fields">
+   <label>Customer name<input id="c-name"></label>
+   <label>Customer phone<input id="c-phone" type="tel"></label>
+   <label>Customer email<input id="c-email" type="email"></label>
+   <label class="wide">Job address<input id="c-address"></label>
+   <label class="wide">Job description (optional)<input id="c-job" placeholder="e.g. Spring house wash and driveway"></label>
+   <label>Quote #<input id="m-number"></label>
+   <label>Quote date<input id="m-date" type="date"></label>
+   <label>Valid for (days)<input id="m-valid" type="number" min="0" step="1" value="30"></label>
+  </div>
+ </details>
+
+ <details class="qm-box" open>
+  <summary><h2>3. Line items</h2></summary>
+  <div class="preset">
+   <p><b>Start from a calculator</b> (optional). These use the <b>example rates</b> from our free calculators. Edit each line's rate to match your own prices.</p>
+   <div class="fields">
+    <label>Trade<select id="p-trade"><option value="pw">Pressure washing</option><option value="hc">House cleaning</option><option value="lc">Lawn care</option></select></label>
+   </div>
+   <div id="p-pw" class="fields ptrade">
+    <label>House wash, siding (sq ft)<input id="pw0" type="number" min="0" step="50" value="0"></label>
+    <label>Driveway / concrete (sq ft)<input id="pw1" type="number" min="0" step="50" value="0"></label>
+    <label>Deck (sq ft)<input id="pw2" type="number" min="0" step="25" value="0"></label>
+    <label>Roof soft wash (sq ft)<input id="pw3" type="number" min="0" step="50" value="0"></label>
+    <label>Gutters (linear ft)<input id="pw4" type="number" min="0" step="10" value="0"></label>
+   </div>
+   <div id="p-hc" class="fields ptrade" hidden>
+    <label>Service<select id="hc-service"><option>Standard clean</option><option>Deep clean</option><option>Move-in / move-out</option></select></label>
+    <label>Price by<select id="hc-method"><option>Sq ft</option><option>Rooms</option><option>Hourly</option></select></label>
+    <label>Frequency<select id="hc-freq"><option>One-time</option><option>Weekly</option><option>Biweekly</option><option>Monthly</option></select></label>
+    <label>Home size (sq ft)<input id="hc-sqft" type="number" min="0" step="100" value="2000"></label>
+    <label>Bedrooms<input id="hc-beds" type="number" min="0" step="1" value="3"></label>
+    <label>Bathrooms<input id="hc-baths" type="number" min="0" step="0.5" value="2"></label>
+    <label>Inside oven<input id="hc-a0" type="number" min="0" step="1" value="0"></label>
+    <label>Inside fridge<input id="hc-a1" type="number" min="0" step="1" value="0"></label>
+    <label>Interior windows<input id="hc-a2" type="number" min="0" step="1" value="0"></label>
+    <label>Laundry loads<input id="hc-a3" type="number" min="0" step="1" value="0"></label>
+   </div>
+   <div id="p-lc" class="fields ptrade" hidden>
+    <label>Lot size<input id="lc-size" type="number" min="0" step="500" value="8000"></label>
+    <label>Unit<select id="lc-unit"><option>Sq ft</option><option>Acres</option></select></label>
+    <label>Mowing visits<input id="lc-v0" type="number" min="0" step="1" value="0"></label>
+    <label>Edging visits<input id="lc-v1" type="number" min="0" step="1" value="0"></label>
+    <label>String trimming visits<input id="lc-v2" type="number" min="0" step="1" value="0"></label>
+    <label>Leaf cleanup visits<input id="lc-v3" type="number" min="0" step="1" value="0"></label>
+    <label>Fertilizing visits<input id="lc-v4" type="number" min="0" step="1" value="0"></label>
+    <label>Core aeration visits<input id="lc-v5" type="number" min="0" step="1" value="0"></label>
+   </div>
+   <p><button type="button" class="btn" id="p-add">Add these lines</button> <span class="note" id="p-msg"></span></p>
+  </div>
+
+  <div class="items-wrap">
+   <table class="items" id="items">
+    <thead><tr><th>Description</th><th>Qty</th><th>Unit</th><th>Rate ($)</th><th>Min ($)</th><th>Amount</th><th></th></tr></thead>
+    <tbody></tbody>
+   </table>
+  </div>
+  <p><button type="button" class="btn" id="i-add">+ Add a line</button> <button type="button" class="link" id="i-clear">Clear all lines</button></p>
+
+  <div class="fields">
+   <label>Discount (%)<input id="t-discount" type="number" min="0" max="100" step="0.5" value="0"></label>
+   <label>Tax label<input id="t-taxlabel" value="Sales tax"></label>
+   <label>Tax rate (%)<input id="t-tax" type="number" min="0" max="100" step="0.001" value="0"></label>
+   <label>Deposit to book (%)<input id="t-deposit" type="number" min="0" max="100" step="5" value="0"></label>
+  </div>
+  <div class="results qm-totals">
+   <div><span>Subtotal</span><strong id="o-sub">$0.00</strong></div>
+   <div><span>Discount</span><strong id="o-disc">$0.00</strong></div>
+   <div><span>Tax</span><strong id="o-tax">$0.00</strong></div>
+   <div><span>Total</span><strong id="o-total">$0.00</strong></div>
+   <div><span>Deposit</span><strong id="o-dep">$0.00</strong></div>
+  </div>
+  <p class="note">Check your local sales tax rules: some states and cities tax services like these and some do not. This tool does not look up tax rates.</p>
+ </details>
+
+ <details class="qm-box" open>
+  <summary><h2>4. Notes, terms and look</h2></summary>
+  <div class="fields">
+   <label class="wide">Notes to the customer<textarea id="n-notes" rows="3" placeholder="e.g. Includes surface cleaner on all flat concrete."></textarea></label>
+   <label class="wide">Terms<textarea id="n-terms" rows="3"></textarea></label>
+   <label>Paper size<select id="s-page"><option value="letter">US Letter</option><option value="a4">A4</option></select></label>
+   <label>Customer signature line<select id="s-accept"><option value="1">Show</option><option value="0">Hide</option></select></label>
+   <label>Brand color <em class="pro-tag">Pro</em><input id="s-color" type="color" value="#1F4E78"></label>
+  </div>
+  <p class="note">The default terms are a plain starting point, not legal advice. Change them to match how you actually work.</p>
+ </details>
+
+ <div class="qm-actions">
+  <button type="button" class="cta" id="a-pdf">Download PDF quote</button>
+  <button type="button" class="btn" id="a-next">Start next quote</button>
+  <button type="button" class="link" id="a-sample">Load sample data</button>
+  <p class="note" id="a-msg"></p>
+ </div>
+
+ <details class="qm-box" id="tpl-box">
+  <summary><h2>Saved quote templates</h2></summary>
+  <p class="note">A template saves your current line items, discount, tax, deposit, notes and terms so you can reuse them for the next job (for example "Standard house wash + driveway"). Free plan: <span id="tpl-limit">1</span> template. Pro: unlimited.</p>
+  <div class="fields"><label>Template name<input id="tpl-name" placeholder="e.g. House wash + driveway"></label></div>
+  <p><button type="button" class="btn" id="tpl-save">Save as template</button></p>
+  <ul id="tpl-list" class="tpl-list"></ul>
+ </details>
+</div></section>
+
+<section id="pro"><div class="wrap">
+ <h2>Quote Maker Pro</h2>
+ <div class="grid">
+  <div>
+   <p>The free Quote Maker does the whole job: logo, line items, tax, deposit and a downloadable PDF. Free PDFs carry a small "Made with Quoteloom" line at the bottom.</p>
+   <p><b>Pro (US$7/month, cancel any time on Gumroad)</b> removes that line and adds:</p>
+   <ul>
+    <li>Unlimited saved quote templates (free: 1)</li>
+    <li>Your own brand color on the PDF header, table and total</li>
+    <li>Everything else in the free version, still with no account and nothing uploaded</li>
+   </ul>
+   <button class="cta disabled" type="button" disabled data-buy="quote-maker-pro" data-buy-label="Get Quote Maker Pro: US$7/month">Pro coming soon: US$7/month</button>
+  </div>
+  <div class="qm-box lic">
+   <h3>Already have Pro?</h3>
+   <p class="note">Paste the license key from your Gumroad receipt. The key is checked with Gumroad and stored only in this browser.</p>
+   <div class="fields"><label class="wide">License key<input id="l-key" autocomplete="off" spellcheck="false"></label></div>
+   <p><button type="button" class="btn" id="l-verify">Activate Pro</button> <button type="button" class="link" id="l-remove" hidden>Remove key from this browser</button></p>
+   <p class="note" id="l-msg"></p>
+  </div>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Frequently asked questions</h2>
+ <div class="faq">
+  <h3>Is the Quote Maker really free?</h3>
+  <p>Yes. You can make and download as many PDF quotes as you like. Free quotes include a small "Made with Quoteloom" line at the bottom and you can keep one saved template. Pro removes the line, unlocks unlimited templates and lets you pick a brand color.</p>
+  <h3>Where is my data stored?</h3>
+  <p>In your browser's local storage on this device. Quoteloom has no server and no database, so we never see your customers or prices. Clearing your browser data removes it, and it does not sync to your other devices. If you activate Pro, your license key is sent to Gumroad (our payment provider) to check it.</p>
+  <h3>Where do the calculator prices come from?</h3>
+  <p>The "start from a calculator" lines use the example rates from our free <a href="/pressure-washing-price-calculator/">pressure washing</a>, <a href="/house-cleaning-price-calculator/">house cleaning</a> and <a href="/lawn-care-price-calculator/">lawn care</a> calculators. They are not market rates. Replace them with what you actually charge.</p>
+  <h3>Is the quote a contract?</h3>
+  <p>The tool only formats the prices and terms you enter. It is not legal, tax or accounting advice; check what your quotes need to include where you work.</p>
+ </div>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a></p><p>Payments are handled by Gumroad. PDF generation uses <a href="https://github.com/parallax/jsPDF">jsPDF</a> (MIT license), served from this site. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>

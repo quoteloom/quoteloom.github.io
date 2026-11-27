@@ -63,6 +63,11 @@
   if (typeof module !== "undefined" && module.exports) {
     module.exports = { houseClean: houseClean, SERVICES: SERVICES, FREQ: FREQ, ADDONS: ADDONS };
   }
+  if (typeof window !== "undefined") {
+    window.QuoteloomCalc = window.QuoteloomCalc || {};
+    var api = { houseClean: houseClean, HC_SERVICES: SERVICES, HC_FREQ: FREQ, HC_ADDONS: ADDONS };
+    for (var k in api) window.QuoteloomCalc[k] = api[k];
+  }
   if (typeof document === "undefined") return;
 
   var ids = ["service", "method", "freq", "sqft", "beds", "baths", "oven", "fridge", "windows", "laundry", "miles", "discountPct", "wage", "crew", "driveMin", "cpm", "targetPct"];
@@ -93,6 +98,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    if (!document.getElementById("service")) return; // calculator form not on this page (e.g. the quote maker)
     ids.forEach(function (id) {
       var el = document.getElementById(id);
       el.addEventListener("input", run);

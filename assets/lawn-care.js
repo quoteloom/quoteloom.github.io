@@ -65,6 +65,11 @@
   if (typeof module !== "undefined" && module.exports) {
     module.exports = { lawnCare: lawnCare, SERVICES: SERVICES, SQFT_PER_ACRE: SQFT_PER_ACRE };
   }
+  if (typeof window !== "undefined") {
+    window.QuoteloomCalc = window.QuoteloomCalc || {};
+    var api = { lawnCare: lawnCare, LC_SERVICES: SERVICES, SQFT_PER_ACRE: SQFT_PER_ACRE };
+    for (var k in api) window.QuoteloomCalc[k] = api[k];
+  }
   if (typeof document === "undefined") return;
 
   var ids = ["size", "unit", "mow", "edge", "trim", "leaf", "fert", "aerate", "discountPct", "months", "wage", "crew", "equipHr", "setupMin", "miles", "cpm", "targetPct"];
@@ -96,6 +101,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    if (!document.getElementById("size")) return; // calculator form not on this page (e.g. the quote maker)
     ids.forEach(function (id) {
       var el = document.getElementById(id);
       el.addEventListener("input", run);

@@ -1,0 +1,34 @@
+.qm-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 16px}
+.qm-box summary{cursor:pointer;list-style:none}
+.qm-box summary::-webkit-details-marker{display:none}
+.qm-box summary h2{display:inline-block;margin:0 0 .4em;font-size:1.25rem}
+.qm-box summary h2::before{content:"▸ ";color:var(--muted)}
+.qm-box[open] summary h2::before{content:"▾ "}
+.fields .wide{grid-column:1/-1}
+.fields textarea{font:inherit;font-size:1rem;padding:8px 10px;border:1px solid #b9c9d6;border-radius:8px;width:100%}
+.fields input[type=color]{height:42px;padding:2px}
+.btn{font:inherit;font-weight:600;background:#fff;border:1px solid var(--navy);color:var(--navy);border-radius:8px;padding:8px 14px;cursor:pointer}
+.btn:hover{background:#eef4f9}
+.link{font:inherit;background:none;border:0;color:var(--navy);text-decoration:underline;cursor:pointer;padding:0}
+.preset{background:#fff;border:1px dashed #b9c9d6;border-radius:10px;padding:12px 14px;margin:0 0 14px}
+.preset p{margin:.3em 0 .6em}
+.ptrade{margin-top:12px}
+.items-wrap{overflow-x:auto}
+.items{width:100%;border-collapse:collapse;min-width:640px;background:#fff}
+.items th{font-size:.8rem;color:var(--muted);text-align:left;padding:6px;border-bottom:1px solid var(--line)}
+.items td{padding:4px;border-bottom:1px solid var(--line);vertical-align:top}
+.items input{width:100%;font-size:.95rem;padding:6px 8px;border:1px solid #b9c9d6;border-radius:6px}
+.items td.amt{white-space:nowrap;padding-top:10px;font-weight:600;text-align:right}
+.items td.amt small{display:block;font-weight:400;color:var(--muted);font-size:.75rem}
+.items .c-desc{min-width:220px}.items .c-num{width:90px}.items .c-unit{width:90px}
+.qm-totals{margin:14px 0 6px}
+.qm-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:8px 0 24px}
+.qm-actions .note{flex-basis:100%;margin:0}
+.plan-bar{background:#eef8f7;border:1px solid #bfe3df;border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:.95rem}
+.pro-tag{align-self:flex-start;font-style:normal;font-size:.7rem;background:var(--teal);color:var(--dark);border-radius:999px;padding:1px 7px;margin-left:4px}
+.logo-prev{display:flex;align-items:center;gap:10px}
+.logo-prev img{max-height:56px;max-width:160px;border:1px solid var(--line);border-radius:6px;background:#fff;padding:4px}
+.tpl-list{padding-left:18px}.tpl-list li{margin:.3em 0}
+.lic h3{margin-top:0}
+.qm-msg-err{color:#a03030}
+.qm [hidden],.lic [hidden]{display:none!important}
