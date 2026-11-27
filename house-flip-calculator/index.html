@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Free House Flip Deal Calculator (Profit, ROI &amp; 70% Rule) | Quoteloom</title>
+<meta name="description" content="Free house flip calculator: enter purchase price, rehab, holding costs, financing and ARV to see profit, ROI, annualized ROI and the 70% rule maximum offer. No signup, runs in your browser.">
+<link rel="canonical" href="https://quoteloom.github.io/house-flip-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free House Flip Deal Calculator (Profit, ROI &amp; 70% Rule)">
+<meta property="og:description" content="Estimate flip profit, ROI, annualized ROI and the 70% rule max offer. No signup. Planning tool, not financial advice.">
+<meta property="og:url" content="https://quoteloom.github.io/house-flip-calculator/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-house-flip.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/house-flip.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "House Flip Deal Analyzer", "description": "Compare up to 3 house-flip deals side by side: purchase, rehab budget by category, holding costs, interest-only financing, selling costs, ARV, profit, ROI, annualized ROI and the 70% rule maximum offer.", "image": "https://quoteloom.github.io/assets/preview-house-flip.png", "brand": {"@type": "Brand", "name": "Quoteloom"}, "offers": {"@type": "Offer", "price": "15.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://quoteloom.gumroad.com/l/house-flip-deal-analyzer"}}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><nav class="nav"><a href="/guides/">Guides</a><a href="/#free-calculators">Free calculators</a></nav></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <h1>Free house flip deal calculator</h1>
+ <p>Enter the purchase price, rehab, holding costs, financing and after-repair value to estimate profit, ROI, annualized ROI and the 70% rule maximum offer. No signup; everything runs in your browser and nothing is stored.</p>
+</div></div>
+
+<section><div class="wrap">
+ <div class="calc">
+  <div class="fields">
+   <label>Purchase price ($)<input id="price" type="number" inputmode="decimal" value="185000" min="0" step="1000"></label>
+   <label>Purchase closing costs ($)<input id="closing" type="number" inputmode="decimal" value="5550" min="0" step="50"></label>
+   <label>Total rehab ($)<input id="rehab" type="number" inputmode="decimal" value="46200" min="0" step="100"></label>
+   <label>Hold period (months)<input id="months" type="number" inputmode="decimal" value="5" min="0" step="1"></label>
+   <label>Holding costs for the hold, excluding interest ($)<input id="holding" type="number" inputmode="decimal" value="2900" min="0" step="50"></label>
+   <label>Down payment (%; 100 = all cash)<input id="down" type="number" inputmode="decimal" value="20" min="0" max="100" step="1"></label>
+   <label>Interest rate (% per year)<input id="rate" type="number" inputmode="decimal" value="11" min="0" step="0.125"></label>
+   <label>Loan points (% of loan)<input id="points" type="number" inputmode="decimal" value="2" min="0" max="100" step="0.25"></label>
+   <label>After-repair value, ARV ($)<input id="arv" type="number" inputmode="decimal" value="285000" min="0" step="1000"></label>
+   <label>Selling costs ($)<input id="selling" type="number" inputmode="decimal" value="21450" min="0" step="50"></label>
+  </div>
+  <div class="results" aria-live="polite">
+   <div><span>70% rule max offer</span><strong id="o-mao">-</strong></div>
+   <div><span>Meets 70% rule</span><strong id="o-meets">-</strong></div>
+   <div><span>Profit</span><strong id="o-profit">-</strong></div>
+   <div><span>Cash invested</span><strong id="o-invested">-</strong></div>
+   <div><span>ROI</span><strong id="o-roi">-</strong></div>
+   <div><span>Annualized ROI</span><strong id="o-ann">-</strong></div>
+  </div>
+  <p class="note">Example values shown; they are sample data, not market rates or a typical result. Use your own numbers. Holding costs are the tax, insurance, utilities and similar costs for the whole hold, not including loan interest (the calculator adds interest-only interest from the rate, loan and months).</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>How it's calculated</h2>
+ <ul>
+  <li><b>Loan amount</b> = purchase price &times; (1 &minus; down payment %). With 100% down it is $0.</li>
+  <li><b>Loan points</b> = loan &times; points %. <b>Interest during the hold</b> = loan &times; annual rate &times; (months / 12). That interest is interest-only, not a fully amortizing mortgage payment. Principal is treated as repaid at sale.</li>
+  <li><b>Net sale proceeds</b> = ARV &minus; selling costs. <b>Profit</b> = proceeds &minus; purchase price &minus; closing costs &minus; points &minus; rehab &minus; holding costs &minus; interest.</li>
+  <li><b>Cash invested</b> = down payment + closing costs + points + rehab + holding costs + interest.</li>
+  <li><b>ROI</b> = profit / cash invested. <b>Annualized ROI</b> = (1 + ROI)<sup>12 / months</sup> &minus; 1. If the hold is 0 months, cash invested is 0, or ROI is &minus;100% or worse, annualized ROI is n/a.</li>
+  <li><b>70% rule maximum offer</b> = ARV &times; 70% &minus; rehab. This is a rule of thumb only. It does not subtract holding costs, interest, points, purchase closing costs or selling costs, and it is not a recommendation. A deal can show a profit in this calculator and still sit above that number, or the other way around.</li>
+ </ul>
+ <p class="note"><b>Not financial advice.</b> This is an educational estimate based only on what you enter. It ignores income taxes, cost overruns beyond the rehab you type, and a sale that takes longer than you planned. Verify numbers and talk to qualified professionals before buying, renovating or selling a property.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Want rehab by category and three deals side by side?</h2>
+ <p>The Quoteloom <b>House Flip Deal Analyzer</b> spreadsheet compares up to 3 flips at once, with a rehab budget split by category (kitchen, baths, flooring, paint, exterior, electrical and plumbing, HVAC, permits, contingency and other), holding costs broken out, interest-only financing, selling costs, profit, ROI, annualized ROI and the 70% rule maximum offer. US$15. Planning tool only; example numbers in the file are sample data, not market rates.</p>
+ <a class="cta" href="https://quoteloom.gumroad.com/l/house-flip-deal-analyzer" data-buy="house-flip" data-buy-label="Get the house flip analyzer: US$15">Get the house flip analyzer: US$15</a>
+ <p>Looking at a rental you'd hold instead of sell? The <a href="/rental-calculator/">free rental cash-flow calculator</a> and the <b>Rental Property Cash Flow &amp; Deal Analyzer</b> (US$15) are for long-term rentals, not flips.</p>
+ <p>The <b>Property Investor Business Kit</b> (US$24) includes the rental analyzer and the Airbnb profit calculator, plus deal-comparison, rent-roll and checklist files. It does not include the House Flip Deal Analyzer, which is sold separately.</p>
+ <a class="cta" href="https://quoteloom.gumroad.com/l/property-investor-calculator-bundle" data-buy="property-investor-bundle" data-buy-label="Get the Property Investor Business Kit: US$24">Get the Property Investor Business Kit: US$24</a>
+ <p><a href="/guides/how-to-analyze-a-house-flip-deal/">Read the guide on how to analyze a house flip deal</a></p>
+ <p><a href="/#house-flip">More about the spreadsheet</a></p>
+ <p class="note">Other free calculators: <a href="/rental-calculator/">rental cash flow</a>, <a href="/airbnb-profit-calculator/">Airbnb profit</a>, <a href="/pressure-washing-price-calculator/">pressure washing</a>, <a href="/house-cleaning-price-calculator/">house cleaning</a>, <a href="/trucking-cost-per-mile-calculator/">trucking cost per mile</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>
