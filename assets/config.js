@@ -12,11 +12,11 @@ window.QUOTELOOM_CONFIG = {
     "home-services-bundle": "https://quoteloom.gumroad.com/l/home-services-calculator-bundle",
     "property-investor-bundle": "https://quoteloom.gumroad.com/l/property-investor-calculator-bundle",
     // Quote Maker Pro membership page, e.g. "https://quoteloom.gumroad.com/l/quote-maker-pro". Empty = "coming soon".
-    "quote-maker-pro": ""
+    "quote-maker-pro": "https://quoteloom.gumroad.com/l/quote-maker-pro"
   },
   // Quote Maker Pro license check. Set gumroadProductId to the product ID shown on the Gumroad product's
   // edit page (Content/License key section, "product_id"). Empty = Pro cannot be activated yet.
   quoteTool: {
-    gumroadProductId: ""
+    gumroadProductId: "j0iWd3ejgCbjhp76VXw4Ig=="
   }
 };
