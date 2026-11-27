@@ -12,6 +12,7 @@ window.QUOTELOOM_CONFIG = {
     "home-services-bundle": "https://quoteloom.gumroad.com/l/home-services-calculator-bundle",
     "property-investor-bundle": "https://quoteloom.gumroad.com/l/property-investor-calculator-bundle",
     "window-gutter": "https://quoteloom.gumroad.com/l/window-gutter-cleaning-calculator",
+    "mobile-detailing": "",
     // Quote Maker Pro membership page, e.g. "https://quoteloom.gumroad.com/l/quote-maker-pro". Empty = "coming soon".
     "quote-maker-pro": "https://quoteloom.gumroad.com/l/quote-maker-pro"
   },

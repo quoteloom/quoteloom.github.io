@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Free Mobile Car Detailing Price Calculator | Quoteloom</title>
+<meta name="description" content="Free mobile detailing price calculator: pick vehicle size and package, add pet hair, odor, headlights, engine bay, sealant or clay bar, and see price, travel fee, drive time, labor, profit and the minimum price for your target margin. No signup.">
+<link rel="canonical" href="https://quoteloom.github.io/mobile-detailing-price-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free Mobile Car Detailing Price Calculator">
+<meta property="og:description" content="Price detailing packages by vehicle size with add-ons, a travel fee and memberships, and see drive time, labor, profit and the minimum price for your target margin. No signup.">
+<meta property="og:url" content="https://quoteloom.github.io/mobile-detailing-price-calculator/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-mobile-detailing.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/mobile-detailing.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I price a mobile detailing job?", "acceptedAnswer": {"@type": "Answer", "text": "Start from a package price for the vehicle size (car, SUV, truck or van), add a surcharge for very dirty vehicles, then add extras like pet hair, odor, headlights, engine bay, sealant or clay bar. Add a travel fee beyond your free radius, use a minimum charge on small jobs, and check the price against your labor (including drive time), chemicals and vehicle costs."}}, {"@type": "Question", "name": "What should I charge for a full detail?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single market rate. This calculator ships with example prices ($160 car, $190 SUV, $210 truck, $230 van for a full detail, $40 to $80 add-ons, an $80 minimum and $1.50 per mile beyond 10 miles), the same example rates as the worked example in the Quoteloom mobile detailing guide. Replace them with your own."}}, {"@type": "Question", "name": "Should I charge for travel?", "acceptedAnswer": {"@type": "Answer", "text": "Mobile work costs drive time and mileage on every job. This page counts both as costs, and lets you charge a travel fee per one-way mile beyond a free radius. Set the fee to 0 if you build travel into your package prices instead."}}, {"@type": "Question", "name": "Does this include equipment wear and overhead?", "acceptedAnswer": {"@type": "Answer", "text": "No. The free calculator includes labor, drive time, chemicals and vehicle cost only. The spreadsheet also allocates equipment wear and monthly overhead to each job, prices water and power setup, and shows maintenance membership value, a printable quote, a job log and a 12-month projection."}}, {"@type": "Question", "name": "Is this pricing advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a planning aid that uses only the numbers you enter, plus the example rates shown on the page. It is not a market survey or tax, legal, environmental or accounting advice."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Mobile Car Detailing Pricing & Profit Calculator", "description": "Spreadsheet template to quote mobile car detailing: package prices by vehicle size, add-ons, condition surcharge, travel fee, drive time, water and power setup and maintenance memberships, with true job cost, profit, margin and a printable quote.", "image": ["https://quoteloom.github.io/assets/preview-mobile-detailing.png", "https://quoteloom.github.io/assets/og-image.png"], "brand": {"@type": "Brand", "name": "Quoteloom"}}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><nav class="nav"><a href="/guides/">Guides</a><a href="/#free-calculators">Free calculators</a></nav></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <h1>Free mobile car detailing price calculator</h1>
+ <p>Pick the vehicle size and package, tick the add-ons, and enter how far away the customer is. You get the price per visit, the travel fee, time on the car, paid drive time, labor, chemicals, vehicle cost, profit and the minimum price that hits your target margin. No signup; it runs in your browser and nothing is stored.</p>
+</div></div>
+
+<section><div class="wrap">
+ <div class="calc" data-calc="mobile-detailing">
+  <div class="fields">
+   <label>Vehicle size<select id="size"><option value="car">Car</option><option value="suv" selected>SUV</option><option value="truck">Truck</option><option value="van">Van</option></select></label>
+   <label>Package<select id="package"><option value="exterior">Exterior wash</option><option value="interior">Interior detail</option><option value="full" selected>Full detail</option></select></label>
+   <label>Package price ($)<input id="pkgPrice" type="number" inputmode="decimal" value="190" min="0" step="5"></label>
+   <label>Package worker-minutes<input id="pkgMin" type="number" inputmode="numeric" value="180" min="0" step="5"></label>
+   <label>Condition surcharge (%)<input id="conditionPct" type="number" inputmode="decimal" value="15" min="0" step="5"></label>
+   <label><span><input id="petHair" type="checkbox" style="width:auto;padding:0;margin:0 6px 0 0;vertical-align:middle" checked> Pet hair removal ($)</span><input id="petHairPrice" type="number" inputmode="decimal" value="40" min="0" step="5" aria-label="Pet hair removal ($) price ($)"></label>
+   <label><span><input id="odor" type="checkbox" style="width:auto;padding:0;margin:0 6px 0 0;vertical-align:middle"> Odor treatment ($)</span><input id="odorPrice" type="number" inputmode="decimal" value="50" min="0" step="5" aria-label="Odor treatment ($) price ($)"></label>
+   <label><span><input id="headlight" type="checkbox" style="width:auto;padding:0;margin:0 6px 0 0;vertical-align:middle" checked> Headlight restoration ($)</span><input id="headlightPrice" type="number" inputmode="decimal" value="60" min="0" step="5" aria-label="Headlight restoration ($) price ($)"></label>
+   <label><span><input id="engine" type="checkbox" style="width:auto;padding:0;margin:0 6px 0 0;vertical-align:middle"> Engine bay cleaning ($)</span><input id="enginePrice" type="number" inputmode="decimal" value="40" min="0" step="5" aria-label="Engine bay cleaning ($) price ($)"></label>
+   <label><span><input id="ceramic" type="checkbox" style="width:auto;padding:0;margin:0 6px 0 0;vertical-align:middle" checked> Ceramic spray sealant ($)</span><input id="ceramicPrice" type="number" inputmode="decimal" value="80" min="0" step="5" aria-label="Ceramic spray sealant ($) price ($)"></label>
+   <label><span><input id="clay" type="checkbox" style="width:auto;padding:0;margin:0 6px 0 0;vertical-align:middle" checked> Clay bar treatment ($)</span><input id="clayPrice" type="number" inputmode="decimal" value="50" min="0" step="5" aria-label="Clay bar treatment ($) price ($)"></label>
+   <label>Minimum charge ($)<input id="minimum" type="number" inputmode="decimal" value="80" min="0" step="5"></label>
+   <label>Membership discount (%)<input id="memberPct" type="number" inputmode="decimal" value="10" min="0" step="1"></label>
+   <label>One-way miles to customer<input id="miles" type="number" inputmode="decimal" value="14" min="0" step="1"></label>
+   <label>Free travel radius (miles)<input id="freeMiles" type="number" inputmode="decimal" value="10" min="0" step="1"></label>
+   <label>Travel fee per mile beyond radius ($)<input id="feePerMile" type="number" inputmode="decimal" value="1.50" min="0" step="0.25"></label>
+   <label>One-way drive minutes<input id="driveMin" type="number" inputmode="numeric" value="22" min="0" step="1"></label>
+   <label>Vehicle cost per mile ($)<input id="cpm" type="number" inputmode="decimal" value="0.70" min="0" step="0.05"></label>
+   <label>Chemicals &amp; supplies per job ($)<input id="chemicals" type="number" inputmode="decimal" value="40" min="0" step="1"></label>
+   <label>Water &amp; power setup (worker-minutes)<input id="setupMin" type="number" inputmode="numeric" value="15" min="0" step="5"></label>
+   <label>Crew size<input id="crew" type="number" inputmode="numeric" value="1" min="0" step="1"></label>
+   <label>Labor cost per worker-hour ($)<input id="laborRate" type="number" inputmode="decimal" value="22" min="0" step="0.5"></label>
+   <label>Target margin (%)<input id="targetPct" type="number" inputmode="decimal" value="40" min="0" step="1"></label>
+  </div>
+  <div class="results" aria-live="polite">
+   <div><span>Services (package + add-ons)</span><strong id="o-lines">-</strong></div>
+   <div><span>Travel fee</span><strong id="o-fee">-</strong></div>
+   <div><span>Price per visit</span><strong id="o-quoted">-</strong></div>
+   <div><span>Worker-hours on the car</span><strong id="o-hours">-</strong></div>
+   <div><span>Paid drive hours</span><strong id="o-drive">-</strong></div>
+   <div><span>Labor (incl. drive)</span><strong id="o-labor">-</strong></div>
+   <div><span>Chemicals &amp; supplies</span><strong id="o-supplies">-</strong></div>
+   <div><span>Vehicle cost</span><strong id="o-vehicle">-</strong></div>
+   <div><span>Job cost</span><strong id="o-cost">-</strong></div>
+   <div><span>Profit</span><strong id="o-profit">-</strong></div>
+   <div><span>Margin</span><strong id="o-margin">-</strong></div>
+   <div><span>Profit per paid hour</span><strong id="o-pph">-</strong></div>
+   <div><span>Min. price for target</span><strong id="o-min">-</strong></div>
+   <div><span>Target check</span><strong id="o-status">-</strong></div>
+  </div>
+  <p class="note">Choosing a size or package fills in the example package price and time; edit them to your own. Example numbers match the SUV full detail in the Quoteloom mobile detailing guide. They are not market rates. Untick an add-on to skip it. This page leaves out equipment wear and monthly overhead, which the spreadsheet allocates to each job.</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>How to price a mobile detailing job</h2>
+ <p>Price by package and vehicle size: an SUV, truck or van takes longer than a car, so each size gets its own price and time. Vehicles in rough shape take longer again, so a condition surcharge raises both the package price and the time. Extras such as pet hair, odor treatment, headlight restoration, engine bay, sealant and clay bar are priced as separate add-ons. If the total comes in under your minimum charge, use the minimum: a quick wash still costs you the drive and the setup.</p>
+ <p>Mobile work has a cost a shop doesn't: the drive. Count your drive time as paid time and your mileage at your real cost per mile, and charge a travel fee beyond a free radius if far-away jobs don't pay. Then check the bid: if the margin is below your target, raise the price to at least the “minimum price for target,” or walk away. The <a href="/guides/how-to-price-mobile-car-detailing/">mobile detailing pricing guide</a> walks through this same example step by step.</p>
+ <h2>How it's calculated</h2>
+ <ul>
+  <li><b>Services</b> = package price &times; (1 + condition surcharge) + each ticked add-on's price, or the minimum charge if that is higher (0 if nothing is selected).</li>
+  <li><b>Price per visit</b> = services &minus; membership discount + travel fee. <b>Travel fee</b> = one-way miles beyond the free radius &times; fee per mile (not discounted).</li>
+  <li><b>Worker-hours</b> = package minutes &times; (1 + surcharge) + example add-on times (pet hair 30, odor 20, headlights 40, engine bay 30, sealant 45, clay bar 45 minutes) + water &amp; power setup. <b>Paid drive hours</b> = one-way minutes &times; 2 / 60 &times; crew.</li>
+  <li><b>Labor</b> = (worker-hours + paid drive hours) &times; labor cost per worker-hour. <b>Vehicle cost</b> = one-way miles &times; 2 &times; cost per mile.</li>
+  <li><b>Job cost</b> = labor + chemicals &amp; supplies + vehicle cost. <b>Profit</b> = price &minus; job cost. <b>Margin</b> = profit / price. <b>Minimum price</b> = job cost / (1 &minus; target margin).</li>
+ </ul>
+ <p class="note">This is a planning aid, not pricing, tax, legal, environmental or accounting advice. Use your own numbers.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Turn this price into a PDF quote</h2>
+ <p>The free <a href="/quote-maker/">Quoteloom Quote Maker</a> adds your logo and contact details, lets you list the package and each add-on separately, and adds tax, a deposit and your terms. Download a clean PDF to send your customer. It runs in your browser; nothing is uploaded. <a href="https://quoteloom.gumroad.com/l/quote-maker-pro">Quote Maker Pro</a> (US$7/month) removes the “Made with Quoteloom” line, adds unlimited saved quote templates and your own brand color.</p>
+ <p><a class="cta" href="/quote-maker/">Make a PDF quote</a></p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Need a price grid for every vehicle size, memberships and a job log?</h2>
+ <p>The Quoteloom <b>Mobile Car Detailing Pricing &amp; Profit Calculator</b> spreadsheet holds your exterior wash, interior detail and full detail prices and times for car, SUV, truck and van, six add-ons with their own materials, condition surcharges, water and power setup options, a travel fee and paid drive time. It adds equipment wear, monthly overhead, sales tax, weekly, biweekly and monthly maintenance memberships with yearly value, a printable customer quote, a job log and a 12-month projection.</p>
+ <button class="cta disabled" type="button" disabled data-buy="mobile-detailing" data-buy-label="Get the mobile detailing spreadsheet: US$12">Coming soon: US$12</button>
+ <p><a href="/#mobile-detailing">More about the spreadsheet</a></p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Frequently asked questions</h2>
+ <div class="faq">
+  <h3>How do I price a mobile detailing job?</h3>
+  <p>Start from a package price for the vehicle size (car, SUV, truck or van), add a surcharge for very dirty vehicles, then add extras like pet hair, odor, headlights, engine bay, sealant or clay bar. Add a travel fee beyond your free radius, use a minimum charge on small jobs, and check the price against your labor (including drive time), chemicals and vehicle costs.</p>
+  <h3>What should I charge for a full detail?</h3>
+  <p>There is no single market rate. This calculator ships with example prices ($160 car, $190 SUV, $210 truck, $230 van for a full detail, $40 to $80 add-ons, an $80 minimum and $1.50 per mile beyond 10 miles), the same example rates as the worked example in the Quoteloom mobile detailing guide. Replace them with your own.</p>
+  <h3>Should I charge for travel?</h3>
+  <p>Mobile work costs drive time and mileage on every job. This page counts both as costs, and lets you charge a travel fee per one-way mile beyond a free radius. Set the fee to 0 if you build travel into your package prices instead.</p>
+  <h3>Does this include equipment wear and overhead?</h3>
+  <p>No. The free calculator includes labor, drive time, chemicals and vehicle cost only. The spreadsheet also allocates equipment wear and monthly overhead to each job, prices water and power setup, and shows maintenance membership value, a printable quote, a job log and a 12-month projection.</p>
+  <h3>Is this pricing advice?</h3>
+  <p>No. It is a planning aid that uses only the numbers you enter, plus the example rates shown on the page. It is not a market survey or tax, legal, environmental or accounting advice.</p>
+ </div>
+ <p class="note">Other free calculators: <a href="/pressure-washing-price-calculator/">pressure washing</a>, <a href="/window-cleaning-price-calculator/">window cleaning</a>, <a href="/gutter-cleaning-price-calculator/">gutter cleaning</a>, <a href="/house-cleaning-price-calculator/">house cleaning</a>, <a href="/lawn-care-price-calculator/">lawn care</a>, <a href="/rental-calculator/">rental cash flow</a>, <a href="/airbnb-profit-calculator/">Airbnb profit</a>, <a href="/trucking-cost-per-mile-calculator/">trucking cost per mile</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>
