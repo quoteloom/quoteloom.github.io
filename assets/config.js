@@ -15,8 +15,7 @@ window.QUOTELOOM_CONFIG = {
     "mobile-detailing": "https://quoteloom.gumroad.com/l/mobile-detailing-calculator",
     // Quote Maker Pro membership page, e.g. "https://quoteloom.gumroad.com/l/quote-maker-pro". Empty = "coming soon".
     "quote-maker-pro": "https://quoteloom.gumroad.com/l/quote-maker-pro",
-    // Empty until the Gumroad listing is published. Button stays "Coming soon".
-    "home-services-os": ""
+    "home-services-os": "https://quoteloom.gumroad.com/l/home-services-business-os"
   },
   // Quote Maker Pro license check. Set gumroadProductId to the product ID shown on the Gumroad product's
   // edit page (Content/License key section, "product_id"). Empty = Pro cannot be activated yet.
