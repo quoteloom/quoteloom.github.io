@@ -114,6 +114,11 @@ check("es index lists four pages", ["/es/house-cleaning-price-calculator/", "/es
 check("es index switcher", esIndex.includes("class=\"lang-switch\"") && esIndex.includes(">English</a>") && esIndex.includes('aria-current="page">Español</a>'));
 check("home switcher", home.includes("class=\"lang-switch\"") && home.includes('aria-current="page">English</a>') && home.includes('href="/es/"') && home.includes(">Español</a>"));
 check("home domain_verify", home.includes('name="p:domain_verify"'));
+check("home catalog title", home.includes("<title>Quoteloom: Free Pricing Calculators and Quote Templates for Service Businesses, Rental Hosts and Truckers</title>"));
+check("home catalog h1", /<h1>Quoteloom: free pricing calculators and quote templates for service businesses, rental hosts and truckers<\/h1>/.test(home));
+check("home h1 is not the pressure washing kit", !/<h1>Pressure Washing Business Starter Kit<\/h1>/.test(home));
+check("home WebSite JSON-LD", home.includes('"@type":"WebSite"'));
+check("home ItemList JSON-LD", home.includes('"@type":"ItemList"'));
 const indexTags = [
   'hreflang="en" href="https://quoteloom.github.io/"',
   'hreflang="es-MX" href="https://quoteloom.github.io/es/"',
