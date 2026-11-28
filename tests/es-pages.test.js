@@ -104,5 +104,29 @@ for (const mod of ["house-cleaning.js", "pressure-washing.js", "airbnb.js"]) {
   check(`${mod} isEs es`, withDoc("es-MX", null, () => api.isEs() === true));
 }
 
+
+const esIndex = fs.readFileSync(path.join(root, "es", "index.html"), "utf8");
+const home = fs.readFileSync(path.join(root, "index.html"), "utf8");
+check("es index lang", /<html lang="es-MX">/.test(esIndex));
+check("es index no aseo", !/(^|[^a-záéíóúñü])aseo([^a-záéíóúñü]|$)/i.test(esIndex));
+check("es index no es-419", !esIndex.includes("es-419") && !home.includes("es-419"));
+check("es index lists four pages", ["/es/house-cleaning-price-calculator/", "/es/airbnb-profit-calculator/", "/es/rental-turnover-checklist/", "/es/pressure-washing-price-calculator/"].every((u) => esIndex.includes(`href="${u}"`)));
+check("es index switcher", esIndex.includes("class=\"lang-switch\"") && esIndex.includes(">English</a>") && esIndex.includes('aria-current="page">Español</a>'));
+check("home switcher", home.includes("class=\"lang-switch\"") && home.includes('aria-current="page">English</a>') && home.includes('href="/es/"') && home.includes(">Español</a>"));
+check("home domain_verify", home.includes('name="p:domain_verify"'));
+const indexTags = [
+  'hreflang="en" href="https://quoteloom.github.io/"',
+  'hreflang="es-MX" href="https://quoteloom.github.io/es/"',
+  'hreflang="es" href="https://quoteloom.github.io/es/"',
+  'hreflang="x-default" href="https://quoteloom.github.io/"'
+];
+for (const tag of indexTags) {
+  check(`es index ${tag}`, esIndex.includes(tag));
+  check(`home ${tag}`, home.includes(tag));
+}
+check("sitemap /es/", sitemap.includes("https://quoteloom.github.io/es/</loc>") || sitemap.includes("https://quoteloom.github.io/es/\"") || sitemap.includes("<loc>https://quoteloom.github.io/es/</loc>"));
+check("sitemap xhtml /es/", sitemap.includes('hreflang="es-MX" href="https://quoteloom.github.io/es/"'));
+check("home footer Español", /<footer>[\s\S]*href="\/es\/"[\s\S]*<\/footer>/.test(home));
+
 console.log(`\n${n - fail}/${n} PASS`);
 process.exit(fail ? 1 : 0);
