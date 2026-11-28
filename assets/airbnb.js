@@ -44,23 +44,65 @@
       potVar: pot.varContrib
     };
   }
-  if (typeof module !== "undefined" && module.exports) { module.exports = { airbnb: airbnb }; }
+  function isEs() {
+    return typeof document !== "undefined" &&
+      ((document.documentElement.getAttribute("lang") || "").toLowerCase().indexOf("es") === 0);
+  }
+  function fmtNum(x, d) {
+    var n = Number(x).toFixed(d);
+    if (isEs()) {
+      var neg = n.charAt(0) === "-", p = (neg ? n.slice(1) : n).split(".");
+      p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      n = (neg ? "-" : "") + p.join(".");
+    }
+    return n;
+  }
+  function money(x) {
+    // ES pages: thousands separators; currency label from <html data-currency>, else "US$".
+    var cur = isEs() ? (document.documentElement.getAttribute("data-currency") || "US$") : "$";
+    return (x < 0 ? "-" : "") + cur + fmtNum(Math.abs(x), 2);
+  }
+
+  if (typeof module !== "undefined" && module.exports) { module.exports = { airbnb: airbnb, isEs: isEs, fmtNum: fmtNum, money: money }; }
   if (typeof document === "undefined") return;
   var ids = ["rate", "occ", "stay", "cleanFee", "platform", "lodgingTax", "cleanCost", "supplies",
              "mgmt", "housing", "util", "other", "annualFixed", "invested"];
-  function money(x) { return (x < 0 ? "-$" : "$") + Math.abs(x).toFixed(2); }
+
+  function scaled(el) {    // Optional data-scale converts a localized unit (m², km, per km) to the unit the model uses.
+    var s = parseFloat(el.getAttribute("data-scale"));
+    return parseFloat(el.value) * (isFinite(s) ? s : 1);
+  }
+  function t(key) {
+    var es = {
+      enterJob: "Ingresa un trabajo",
+      enterSize: "Ingresa el tamaño del trabajo",
+      meets: "Cumple el margen objetivo",
+      below: "Por debajo del margen objetivo",
+      na: "no aplica",
+      unreachable: "No alcanzable"
+    };
+    var en = {
+      enterJob: "Enter a job",
+      enterSize: "Enter a job size",
+      meets: "Meets target margin",
+      below: "Below target margin",
+      na: "n/a",
+      unreachable: "Not reachable"
+    };
+    return (isEs() ? es : en)[key];
+  }
   function run() {
-    var v = {}; ids.forEach(function (id) { v[id] = parseFloat(document.getElementById(id).value); });
+    var v = {}; ids.forEach(function (id) { v[id] = scaled(document.getElementById(id)); });
     var o = airbnb(v);
-    document.getElementById("o-nights").textContent = o.nights.toFixed(1);
+    document.getElementById("o-nights").textContent = fmtNum(o.nights, 1);
     document.getElementById("o-gross").textContent = money(o.gross);
     document.getElementById("o-net").textContent = money(o.net);
     document.getElementById("o-var").textContent = money(o.varContrib);
     document.getElementById("o-fixed").textContent = money(o.fixed);
     document.getElementById("o-cf").textContent = money(o.cf);
     document.getElementById("o-cfm").textContent = money(o.cfm);
-    document.getElementById("o-coc").textContent = o.coc === null ? "n/a" : (o.coc * 100).toFixed(2) + "%";
-    document.getElementById("o-beo").textContent = o.beo === null ? "Not reachable" : (o.beo * 100).toFixed(2) + "%";
+    document.getElementById("o-coc").textContent = o.coc === null ? t("na") : fmtNum(o.coc * 100, 2) + "%";
+    document.getElementById("o-beo").textContent = o.beo === null ? t("unreachable") : fmtNum(o.beo * 100, 2) + "%";
   }
   document.addEventListener("DOMContentLoaded", function () {
     ids.forEach(function (id) { document.getElementById(id).addEventListener("input", run); }); run();

@@ -49,8 +49,27 @@
     };
   }
 
+  function isEs() {
+    return typeof document !== "undefined" &&
+      ((document.documentElement.getAttribute("lang") || "").toLowerCase().indexOf("es") === 0);
+  }
+  function fmtNum(x, d) {
+    var n = Number(x).toFixed(d);
+    if (isEs()) {
+      var neg = n.charAt(0) === "-", p = (neg ? n.slice(1) : n).split(".");
+      p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      n = (neg ? "-" : "") + p.join(".");
+    }
+    return n;
+  }
+  function money(x) {
+    // ES pages: thousands separators; currency label from <html data-currency>, else "US$".
+    var cur = isEs() ? (document.documentElement.getAttribute("data-currency") || "US$") : "$";
+    return (x < 0 ? "-" : "") + cur + fmtNum(Math.abs(x), 2);
+  }
+
   if (typeof module !== "undefined" && module.exports) {
-    module.exports = { pressureWash: pressureWash, SERVICES: SERVICES };
+    module.exports = { pressureWash: pressureWash, SERVICES: SERVICES, isEs: isEs, fmtNum: fmtNum, money: money };
   }
   if (typeof window !== "undefined") {
     window.QuoteloomCalc = window.QuoteloomCalc || {};
@@ -61,8 +80,31 @@
 
   var ids = ["house", "driveway", "deck", "roof", "gutters", "discountPct", "miles", "cpm", "setupHours", "laborRate", "crew", "targetPct"];
 
-  function money(x) { return (x < 0 ? "-$" : "$") + Math.abs(x).toFixed(2); }
-  function num(id) { return parseFloat(document.getElementById(id).value); }
+
+  function scaled(el) {    // Optional data-scale converts a localized unit (m², km, per km) to the unit the model uses.
+    var s = parseFloat(el.getAttribute("data-scale"));
+    return parseFloat(el.value) * (isFinite(s) ? s : 1);
+  }
+  function t(key) {
+    var es = {
+      enterJob: "Ingresa un trabajo",
+      enterSize: "Ingresa el tamaño del trabajo",
+      meets: "Cumple el margen objetivo",
+      below: "Por debajo del margen objetivo",
+      na: "no aplica",
+      unreachable: "No alcanzable"
+    };
+    var en = {
+      enterJob: "Enter a job",
+      enterSize: "Enter a job size",
+      meets: "Meets target margin",
+      below: "Below target margin",
+      na: "n/a",
+      unreachable: "Not reachable"
+    };
+    return (isEs() ? es : en)[key];
+  }
+  function num(id) { return scaled(document.getElementById(id)); }
 
   function run() {
     var r = pressureWash({
@@ -72,15 +114,15 @@
       targetPct: num("targetPct"), fixedCost: 0
     });
     document.getElementById("o-quoted").textContent = money(r.quoted);
-    document.getElementById("o-hours").textContent = r.crewHours.toFixed(2);
+    document.getElementById("o-hours").textContent = fmtNum(r.crewHours, 2);
     document.getElementById("o-labor").textContent = money(r.labor);
     document.getElementById("o-chem").textContent = money(r.chem);
     document.getElementById("o-travel").textContent = money(r.travel);
     document.getElementById("o-cost").textContent = money(r.cost);
     document.getElementById("o-profit").textContent = money(r.profit);
-    document.getElementById("o-margin").textContent = (r.margin * 100).toFixed(1) + "%";
-    document.getElementById("o-min").textContent = r.minPrice === null ? "n/a" : money(r.minPrice);
-    document.getElementById("o-status").textContent = r.quoted <= 0 ? "Enter a job size" : (r.meetsTarget ? "Meets target margin" : "Below target margin");
+    document.getElementById("o-margin").textContent = fmtNum(r.margin * 100, 1) + "%";
+    document.getElementById("o-min").textContent = r.minPrice === null ? t("na") : money(r.minPrice);
+    document.getElementById("o-status").textContent = r.quoted <= 0 ? t("enterSize") : (r.meetsTarget ? t("meets") : t("below"));
   }
 
   document.addEventListener("DOMContentLoaded", function () {

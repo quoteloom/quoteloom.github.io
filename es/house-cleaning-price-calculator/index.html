@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Calculadora de precios de limpieza de casas (gratis) | Quoteloom</title>
+<meta name="description" content="Calculadora gratuita para cotizar limpieza de casas: estándar, profunda o de entrada/salida, por pie cuadrado, por recámaras o por hora. Ve mano de obra, insumos, traslado, ganancia y el precio mínimo para tu margen objetivo.">
+<link rel="canonical" href="https://quoteloom.github.io/es/house-cleaning-price-calculator/">
+<link rel="alternate" hreflang="en" href="https://quoteloom.github.io/house-cleaning-price-calculator/">
+<link rel="alternate" hreflang="es-MX" href="https://quoteloom.github.io/es/house-cleaning-price-calculator/">
+<link rel="alternate" hreflang="es" href="https://quoteloom.github.io/es/house-cleaning-price-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://quoteloom.github.io/house-cleaning-price-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:locale" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="Calculadora de precios de limpieza de casas (gratis)">
+<meta property="og:description" content="Cotiza una limpieza por pie cuadrado, recámaras o por hora. Ve mano de obra, insumos, traslado, ganancia y el precio mínimo para tu margen objetivo. Sin registro.">
+<meta property="og:url" content="https://quoteloom.github.io/es/house-cleaning-price-calculator/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-house-cleaning.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/house-cleaning.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo cotizar un trabajo de limpieza de casas?","acceptedAnswer":{"@type":"Answer","text":"Elige el método con el que ya cotizas: por pie cuadrado, por recámaras y baños, o por hora. Aplica tu cargo mínimo, resta un descuento por frecuencia si lo ofreces y suma extras como hornos o ventanas. La mano de obra debe incluir el tiempo de traslado pagado de todo el equipo, no solo el tiempo dentro de la casa."}},{"@type":"Question","name":"¿Cuánto descontar en limpiezas semanales o cada dos semanas?","acceptedAnswer":{"@type":"Answer","text":"Solo si el trabajo repetido de verdad ahorra tiempo y costo de venta. Los descuentos de ejemplo en esta página son 20% semanal, 15% cada dos semanas y 10% mensual, tomados de la hoja de cálculo de Quoteloom para que se vea la matemática. No son una regla. Si el precio con descuento queda por debajo de tu precio mínimo para el margen objetivo, el descuento es demasiado alto."}},{"@type":"Question","name":"¿Esto incluye gastos fijos y equipo?","acceptedAnswer":{"@type":"Answer","text":"No. La calculadora gratuita solo incluye mano de obra, insumos y traslado. La hoja de cálculo también agrega un monto de equipo por trabajo, gastos fijos mensuales prorrateados, impuesto sobre ventas, una bitácora de trabajos y una proyección a 12 meses. Los archivos están en inglés."}},{"@type":"Question","name":"¿Estas son tarifas recomendadas para mi ciudad o para México?","acceptedAnswer":{"@type":"Answer","text":"No. Los precios de ejemplo (por ejemplo, un base de US$60 más US$20 por recámara y US$25 por baño en una limpieza estándar, con un mínimo de US$120) solo están para que veas cómo funcionan las fórmulas. Sustitúyelos por tus propias cifras. Esta es una ayuda de planificación, no asesoría de precios, fiscal, legal ni contable."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"House Cleaning Pricing & Profit Calculator","description":"Hoja de cálculo (en inglés) para cotizar una casa por pie cuadrado, por recámaras y baños, o por hora. Cubre limpieza estándar, profunda y de entrada/salida, descuentos por frecuencia y extras como horno, refrigerador, ventanas y lavandería.","image":"https://quoteloom.github.io/assets/preview-house-cleaning.png","brand":{"@type":"Brand","name":"Quoteloom"},"offers":{"@type":"Offer","price":"12.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://quoteloom.gumroad.com/l/house-cleaning-calculator"}}</script>
+
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><nav class="nav"><a href="/guides/">Guías (EN)</a><a href="/#free-calculators">Calculadoras</a><span class="lang-switch"><a href="/house-cleaning-price-calculator/" lang="en" hreflang="en">English</a><span aria-hidden="true"> | </span><a href="/es/house-cleaning-price-calculator/" lang="es-MX" hreflang="es-MX" aria-current="page">Español</a></span></nav></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <h1>Calculadora de precios de limpieza de casas (gratis)</h1>
+ <p>Cotiza una limpieza estándar, profunda o de entrada/salida por pie cuadrado, por recámaras y baños, o por hora. Agrega un descuento por frecuencia y extras, y ve el tiempo en el sitio, la mano de obra, los insumos, el traslado, la ganancia y el precio mínimo para tu margen objetivo. Sin registro; corre en tu navegador y no se guarda nada.</p>
+</div></div>
+
+<section><div class="wrap">
+ <div class="calc">
+  <div class="fields">
+   <label>Tipo de servicio
+    <select id="service">
+     <option value="Standard clean" selected>Limpieza estándar</option>
+     <option value="Deep clean">Limpieza profunda</option>
+     <option value="Move-in / move-out">Limpieza de entrada / salida</option>
+    </select>
+   </label>
+   <label>Método de cobro
+    <select id="method">
+     <option value="Sq ft">Por pie cuadrado</option>
+     <option value="Rooms" selected>Por recámaras y baños</option>
+     <option value="Hourly">Por hora</option>
+    </select>
+   </label>
+   <label>Frecuencia
+    <select id="freq">
+     <option value="One-time">Una sola vez</option>
+     <option value="Weekly">Semanal</option>
+     <option value="Biweekly" selected>Cada dos semanas</option>
+     <option value="Monthly">Mensual</option>
+    </select>
+   </label>
+   <label>Tamaño de la casa (ft²)<input id="sqft" type="number" inputmode="decimal" value="1800" min="0" step="50"></label>
+   <label>Recámaras<input id="beds" type="number" inputmode="numeric" value="3" min="0" step="1"></label>
+   <label>Baños<input id="baths" type="number" inputmode="decimal" value="2" min="0" step="0.5"></label>
+   <label>Hornos (por dentro, cantidad)<input id="oven" type="number" inputmode="numeric" value="0" min="0" step="1"></label>
+   <label>Refrigeradores (por dentro, cantidad)<input id="fridge" type="number" inputmode="numeric" value="1" min="0" step="1"></label>
+   <label>Ventanas interiores (cantidad)<input id="windows" type="number" inputmode="numeric" value="0" min="0" step="1"></label>
+   <label>Cargas de lavandería<input id="laundry" type="number" inputmode="numeric" value="0" min="0" step="1"></label>
+   <label>Millas de ida y vuelta<input id="miles" type="number" inputmode="decimal" value="14" min="0" step="1"></label>
+   <label>Descuento extra (%)<input id="discountPct" type="number" inputmode="decimal" value="0" min="0" max="100" step="1"></label>
+   <label>Costo laboral por hora-persona (US$)<input id="wage" type="number" inputmode="decimal" value="18" min="0" step="0.5"></label>
+   <label>Tamaño del equipo<input id="crew" type="number" inputmode="numeric" value="2" min="1" step="1"></label>
+   <label>Tiempo de traslado pagado (minutos)<input id="driveMin" type="number" inputmode="decimal" value="20" min="0" step="5"></label>
+   <label>Costo por milla (US$)<input id="cpm" type="number" inputmode="decimal" value="0.65" min="0" step="0.05"></label>
+   <label>Margen objetivo (%)<input id="targetPct" type="number" inputmode="decimal" value="30" min="0" max="99" step="1"></label>
+  </div>
+  <div class="results" aria-live="polite">
+   <div><span>Precio cotizado</span><strong id="o-quoted">-</strong></div>
+   <div><span>Tiempo en el sitio</span><strong id="o-onsite">-</strong></div>
+   <div><span>Mano de obra</span><strong id="o-labor">-</strong></div>
+   <div><span>Insumos</span><strong id="o-supplies">-</strong></div>
+   <div><span>Traslado</span><strong id="o-travel">-</strong></div>
+   <div><span>Costo del trabajo</span><strong id="o-cost">-</strong></div>
+   <div><span>Ganancia</span><strong id="o-profit">-</strong></div>
+   <div><span>Margen</span><strong id="o-margin">-</strong></div>
+   <div><span>Precio mín. para el objetivo</span><strong id="o-min">-</strong></div>
+   <div><span>Verificación del margen</span><strong id="o-status">-</strong></div>
+  </div>
+  <p class="note">Ejemplo: una limpieza estándar cada dos semanas, de 3 recámaras y 2 baños, con un refrigerador como extra. Los descuentos de ejemplo por frecuencia son 20% semanal, 15% cada dos semanas y 10% mensual. Esta página no incluye equipo ni gastos fijos mensuales, que sí están en la hoja de cálculo. Los tamaños de ejemplo están en pies cuadrados (ft²) y millas, y las tarifas de ejemplo (precio por pie cuadrado, mínimos y extras) están en dólares de EE. UU. (US$), tomados de la hoja de cálculo en inglés para que se vea la matemática. No son tarifas del mercado mexicano. 1 m² equivale a 10.764 ft²; convierte tus medidas o sustituye las cifras por las tuyas. En esta página gratuita esas tarifas fijas no se editan; en la hoja de cálculo sí puedes cambiarlas, incluso a pesos.</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Cómo cotizar un trabajo de limpieza de casas</h2>
+ <p>Elige el método que ya usas. El cobro por pie cuadrado escala bien en casas grandes. El cobro por recámaras (un base más un cargo por recámara y por baño) es más fácil de explicar en la puerta. El cobro por hora sigue tu ritmo de producción: horas = pies cuadrados / pies cuadrados por hora, luego por tu tarifa horaria, con un mínimo para que un trabajo pequeño todavía cubra la visita.</p>
+ <p>Si descuentas el trabajo semanal o cada dos semanas, aplícalo solo al precio de la limpieza y luego suma los extras (hornos, refrigeradores, ventanas, lavandería) a su tarifa completa: si no, una limpieza recurrente “barata” más varios extras puede esconder una pérdida. La mano de obra debe ser lo que te cuesta cada persona por hora, multiplicado por las horas pagadas de todo el equipo, incluido el traslado. Si el margen queda por debajo de tu objetivo, la cotización es baja, el descuento es alto o la visita necesita más tiempo del que pensaste.</p>
+ <h2>Cómo se calcula</h2>
+ <ul>
+  <li><b>Precio de la limpieza</b> = pies cuadrados &times; tarifa, o base + recámaras + baños, o horas estimadas &times; tarifa por hora; luego, el mayor entre esa cifra y el mínimo del servicio.</li>
+  <li><b>Precio cotizado</b> = precio de la limpieza &times; (1 &minus; descuento por frecuencia) + extras, y después cualquier descuento adicional.</li>
+  <li><b>Tiempo en el sitio</b> = (pies cuadrados / ritmo de producción + minutos de extras / 60) / tamaño del equipo.</li>
+  <li><b>Mano de obra</b> = costo laboral por hora-persona &times; (tiempo en el sitio + tiempo de traslado) &times; tamaño del equipo. <b>Traslado</b> = millas &times; costo por milla.</li>
+  <li><b>Costo del trabajo</b> = mano de obra + insumos + traslado. <b>Precio mínimo</b> = costo del trabajo / (1 &minus; margen objetivo).</li>
+ </ul>
+ <p class="note">Precios de ejemplo de los extras: horno US$35 (40 min), refrigerador US$30 (30 min), ventana US$5 (6 min), carga de lavandería US$15 (20 min). Esta es una ayuda de planificación, no asesoría de precios. Usa tus propias cifras.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Pasa este precio a una cotización en PDF</h2>
+ <p>El <a href="/quote-maker/">Quoteloom Quote Maker</a> (en inglés) agrega tu logotipo y datos de contacto, arma las partidas con las tarifas de ejemplo de esta calculadora (cámbialas por las tuyas) y suma impuesto, anticipo y tus términos. Descarga un PDF limpio para enviárselo a tu cliente. Corre en tu navegador; no se sube nada.</p>
+ <p><a class="cta" href="/quote-maker/">Hacer una cotización en PDF (EN)</a></p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>¿Necesitas tarifas editables, gastos fijos y una bitácora?</h2>
+ <p>La hoja de cálculo de Quoteloom <b>House Cleaning Pricing &amp; Profit Calculator</b> (en inglés, US$12) te deja editar precios, mínimos y ritmos de producción para limpieza estándar, profunda y de entrada/salida, además de tus descuentos por frecuencia y extras. También prorratea equipo y gastos fijos, e incluye una bitácora de trabajos y una proyección a 12 meses.</p>
+ <a class="cta" href="https://quoteloom.gumroad.com/l/house-cleaning-calculator" data-buy="house-cleaning" data-buy-label="Obtener la hoja de cálculo: US$12">Obtener la hoja de cálculo: US$12</a>
+ <p>¿Ofreces más de uno de estos servicios? El <b>Home Services Business Kit</b> incluye las calculadoras de lavado a presión, limpieza de casas y cuidado de jardines (US$36 si se compran por separado) más tarifas, plantillas de cotización y factura, un contrato de servicio de muestra, listas de verificación y guiones de seguimiento, por US$25. El contrato es una muestra y no es asesoría legal. Los archivos están en inglés.</p>
+ <a class="cta" href="https://quoteloom.gumroad.com/l/home-services-calculator-bundle" data-buy="home-services-bundle" data-buy-label="Obtener el Home Services Business Kit: US$25">Obtener el Home Services Business Kit: US$25</a>
+ <p><a href="/guides/how-to-price-house-cleaning-jobs/">Leer la guía para cotizar limpieza de casas (EN)</a></p>
+ <p><a href="/#house-cleaning">Más sobre la hoja de cálculo (EN)</a></p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Preguntas frecuentes</h2>
+ <div class="faq">
+  <h3>¿Cómo cotizar un trabajo de limpieza de casas?</h3>
+  <p>Elige el método con el que ya cotizas: por pie cuadrado, por recámaras y baños, o por hora. Aplica tu cargo mínimo, resta un descuento por frecuencia si lo ofreces y suma extras como hornos o ventanas. La mano de obra debe incluir el tiempo de traslado pagado de todo el equipo, no solo el tiempo dentro de la casa.</p>
+  <h3>¿Cuánto descontar en limpiezas semanales o cada dos semanas?</h3>
+  <p>Solo si el trabajo repetido de verdad ahorra tiempo y costo de venta. Los descuentos de ejemplo en esta página son 20% semanal, 15% cada dos semanas y 10% mensual, tomados de la hoja de cálculo de Quoteloom para que se vea la matemática. No son una regla. Si el precio con descuento queda por debajo de tu precio mínimo para el margen objetivo, el descuento es demasiado alto.</p>
+  <h3>¿Esto incluye gastos fijos y equipo?</h3>
+  <p>No. La calculadora gratuita solo incluye mano de obra, insumos y traslado. La hoja de cálculo también agrega un monto de equipo por trabajo, gastos fijos mensuales prorrateados, impuesto sobre ventas, una bitácora de trabajos y una proyección a 12 meses. Los archivos están en inglés.</p>
+  <h3>¿Estas son tarifas recomendadas para mi ciudad o para México?</h3>
+  <p>No. Los precios de ejemplo (por ejemplo, un base de US$60 más US$20 por recámara y US$25 por baño en una limpieza estándar, con un mínimo de US$120) solo están para que veas cómo funcionan las fórmulas. Sustitúyelos por tus propias cifras. Esta es una ayuda de planificación, no asesoría de precios, fiscal, legal ni contable.</p>
+ </div>
+ <p class="note">Otras calculadoras gratuitas: <a href="/es/pressure-washing-price-calculator/">lavado a presión</a>, <a href="/lawn-care-price-calculator/">cuidado de jardines (EN)</a>, <a href="/rental-calculator/">flujo de efectivo de rentas (EN)</a>, <a href="/es/airbnb-profit-calculator/">ganancias de Airbnb</a>, <a href="/trucking-cost-per-mile-calculator/">costo por milla de transporte (EN)</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contacto: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacidad</a> · <a href="/affiliate-disclosure/">Divulgación de afiliados</a></p><p>Los pagos y la entrega de archivos los procesa Gumroad. Los archivos y las páginas de compra están en inglés. Las herramientas de Quoteloom son ayudas de planificación, no asesoría fiscal, legal, de seguros ni contable.</p></div></footer>
+</body>
+</html>
