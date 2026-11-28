@@ -18,8 +18,7 @@ window.QUOTELOOM_CONFIG = {
     "home-services-os": "https://quoteloom.gumroad.com/l/home-services-business-os",
     "rental-host-os": "https://quoteloom.gumroad.com/l/rental-host-os",
     "house-flip": "https://quoteloom.gumroad.com/l/house-flip-deal-analyzer",
-    // STAGED: replace GUMROAD_SLUG_PENDING with the real Gumroad slug (check_site.py fails until you do).
-    "commercial-cleaning-bid": "https://quoteloom.gumroad.com/l/GUMROAD_SLUG_PENDING"
+    "commercial-cleaning-bid": "https://quoteloom.gumroad.com/l/commercial-cleaning-bid-calculator"
   },
   // Quote Maker Pro license check. Set gumroadProductId to the product ID shown on the Gumroad product's
   // edit page (Content/License key section, "product_id"). Empty = Pro cannot be activated yet.
