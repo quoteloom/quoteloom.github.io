@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<title>Free Commercial Cleaning Bid Calculator: Per Visit, Monthly, Annual | Quoteloom</title>
+<meta name="description" content="Free commercial cleaning bid calculator: enter square feet, a production rate, visits per week, labor burden, supplies, overhead and a target margin to see a per-visit, monthly and annual bid. No signup.">
+<link rel="canonical" href="https://quoteloom.github.io/commercial-cleaning-bid-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Quoteloom">
+<meta property="og:title" content="Free Commercial Cleaning Bid Calculator">
+<meta property="og:description" content="Turn square feet and a production rate into a per-visit, monthly and annual cleaning bid, with labor burden, overhead and margin. No signup.">
+<meta property="og:url" content="https://quoteloom.github.io/commercial-cleaning-bid-calculator/">
+<meta property="og:image" content="https://quoteloom.github.io/assets/preview-commercial-cleaning-bid.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12263A">
+<script src="/assets/config.js" defer></script>
+<script src="/assets/buy.js" defer></script>
+<script src="/assets/commercial-cleaning.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I bid a commercial cleaning contract?","acceptedAnswer":{"@type":"Answer","text":"Measure the square feet in each area, decide how many times a week each area is cleaned, and turn that into cleaner-hours using your own production rate. Add non-productive time and paid drive time, multiply by your fully loaded labor cost, then add supplies, equipment wear, travel, overhead and any fixed contract costs. Divide the annual cost by one minus your target margin, then by 12 for a monthly bid."}},{"@type":"Question","name":"What production rate should I use?","acceptedAnswer":{"@type":"Answer","text":"There is no rate on this page you should rely on. The 3,000 sq ft per cleaner-hour shown is an example placeholder so the math is visible. Production rates depend on the building, the equipment and your crew, so time your own work or use a published source you trust, and replace the example."}},{"@type":"Question","name":"Does this include overhead and profit?","acceptedAnswer":{"@type":"Answer","text":"Yes, as percentages you enter. Overhead is a percentage of direct cost, and your target margin is a percentage of the price. The free calculator also lets you set a minimum monthly charge and round the monthly bid up to a step you choose."}},{"@type":"Question","name":"What does the spreadsheet add?","acceptedAnswer":{"@type":"Answer","text":"The Quoteloom Commercial Cleaning Bid Calculator workbook lets you price up to eight area types with their own production rates and supplies, add periodic services such as floor strip and wax or carpet extraction, see a margin what-if table, print a customer-facing bid summary and log bids to see your win rate."}},{"@type":"Question","name":"Is this pricing advice?","acceptedAnswer":{"@type":"Answer","text":"No. It is a planning aid that uses only the numbers you enter, plus clearly labeled example values. It is not a market survey, a bid recommendation, or tax, legal, insurance or accounting advice."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Commercial Cleaning Bid Calculator","description":"Excel workbook that turns square footage, production rates by area type, labor burden, visit schedule, supplies, overhead and a target margin into per-visit, monthly and annual bids, plus a customer-facing bid summary, margin what-if table and bid tracker. Example numbers are editable placeholders, not market rates.","image":"https://quoteloom.github.io/assets/preview-commercial-cleaning-bid.png","brand":{"@type":"Brand","name":"Quoteloom"},"offers":{"@type":"Offer","price":"15.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://quoteloom.gumroad.com/l/GUMROAD_SLUG_PENDING"}}</script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="/"><img src="/assets/logo.svg" alt="" width="28" height="28">Quoteloom</a><nav class="nav"><a href="/guides/">Guides</a><a href="/#free-calculators">Free calculators</a></nav></div></header>
+<main>
+<div class="hero"><div class="wrap" style="display:block">
+ <h1>Free commercial cleaning bid calculator</h1>
+ <p>Enter the building size, how fast your crew cleans, how often you visit, and your labor, supply and overhead costs. You get a per-visit price, a monthly bid and an annual bid, with cost, profit and the break-even monthly price. No signup; it runs in your browser and nothing is stored.</p>
+</div></div>
+
+<section><div class="wrap">
+ <div class="calc">
+  <div class="fields">
+   <label>Building size (sq ft)<input id="sqft" type="number" inputmode="decimal" value="12500" min="0" step="500"></label>
+   <label>Production rate (sq ft per cleaner-hour, EXAMPLE)<input id="rate" type="number" inputmode="decimal" value="3000" min="0" step="100"></label>
+   <label>Cleanings per week (each area)<input id="cleanings" type="number" inputmode="decimal" value="5" min="0" step="1"></label>
+   <label>Service visits per week<input id="visits" type="number" inputmode="decimal" value="5" min="0" step="1"></label>
+   <label>Weeks serviced per year<input id="weeks" type="number" inputmode="decimal" value="52" min="0" step="1"></label>
+   <label>Crew size (cleaners per visit)<input id="crew" type="number" inputmode="decimal" value="2" min="0" step="1"></label>
+   <label>Paid drive time per visit (minutes, each cleaner)<input id="driveMin" type="number" inputmode="decimal" value="15" min="0" step="5"></label>
+   <label>Round-trip miles per visit<input id="miles" type="number" inputmode="decimal" value="12" min="0" step="1"></label>
+   <label>Cost per mile ($)<input id="cpm" type="number" inputmode="decimal" value="0.65" min="0" step="0.05"></label>
+   <label>Base wage per cleaner-hour ($)<input id="wage" type="number" inputmode="decimal" value="16" min="0" step="0.5"></label>
+   <label>Labor burden (% added to wage)<input id="burdenPct" type="number" inputmode="decimal" value="20" min="0" step="1"></label>
+   <label>Non-productive time (% of cleaning hours)<input id="nonprodPct" type="number" inputmode="decimal" value="10" min="0" step="1"></label>
+   <label>Supplies ($ per 1,000 sq ft per cleaning)<input id="suppliesPer1000" type="number" inputmode="decimal" value="0.90" min="0" step="0.05"></label>
+   <label>Equipment wear per visit ($)<input id="equipPerVisit" type="number" inputmode="decimal" value="4" min="0" step="0.5"></label>
+   <label>Overhead (% of direct cost)<input id="overheadPct" type="number" inputmode="decimal" value="12" min="0" step="1"></label>
+   <label>Fixed contract cost per month ($)<input id="fixedMonth" type="number" inputmode="decimal" value="75" min="0" step="5"></label>
+   <label>Target margin (% of price)<input id="targetPct" type="number" inputmode="decimal" value="25" min="0" step="1"></label>
+   <label>Minimum monthly charge ($)<input id="minMonth" type="number" inputmode="decimal" value="400" min="0" step="25"></label>
+   <label>Round the monthly bid up to the nearest ($)<input id="roundStep" type="number" inputmode="decimal" value="5" min="0" step="1"></label>
+  </div>
+  <div class="results" aria-live="polite">
+   <div><span>Monthly bid</span><strong id="o-monthly">-</strong></div>
+   <div><span>Annual bid</span><strong id="o-annual">-</strong></div>
+   <div><span>Price per visit</span><strong id="o-pervisit">-</strong></div>
+   <div><span>Paid labor hours per week</span><strong id="o-hours">-</strong></div>
+   <div><span>Labor per week</span><strong id="o-labor">-</strong></div>
+   <div><span>Supplies per week</span><strong id="o-supplies">-</strong></div>
+   <div><span>Direct cost per year</span><strong id="o-direct">-</strong></div>
+   <div><span>Total annual cost</span><strong id="o-cost">-</strong></div>
+   <div><span>Annual profit</span><strong id="o-profit">-</strong></div>
+   <div><span>Margin on the bid</span><strong id="o-margin">-</strong></div>
+   <div><span>Break-even monthly price</span><strong id="o-breakeven">-</strong></div>
+   <div><span>Check</span><strong id="o-status">-</strong></div>
+  </div>
+  <p class="note">Every starting value on this page, including the 3,000 sq ft per cleaner-hour production rate, is an editable EXAMPLE so the math is visible. None of them is a market rate, an industry standard or a recommended price. Replace them with your own measured rates and costs. This page treats the whole building as one blended area and leaves out periodic services such as floor strip and wax; the spreadsheet handles both.</p>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>How to bid a commercial cleaning contract</h2>
+ <p>Start with the work, not the price. Measure each area, decide how many times a week it is cleaned, and divide square feet by how many square feet one cleaner covers in an hour to get cleaner-hours. Production rates differ for open offices, restrooms and lobbies, which is why the spreadsheet lets you set one per area type.</p>
+ <p>Then cost the labor honestly: add time for walking, setup and breaks, add paid drive time for every cleaner, and use a loaded hourly cost that includes payroll taxes and insurance, not only the wage. Add supplies, equipment wear and travel, spread overhead across the direct cost, and divide by one minus your target margin. A minimum monthly charge and a rounding step keep a small building from being bid below what it takes to show up.</p>
+ <h2>How it's calculated</h2>
+ <ul>
+  <li><b>Cleaner-hours per week</b> = square feet / production rate &times; cleanings per week. <b>Paid hours</b> = cleaner-hours &times; (1 + non-productive %) + visits &times; drive minutes / 60 &times; crew size.</li>
+  <li><b>Labor</b> = paid hours &times; wage &times; (1 + burden). <b>Supplies</b> = square feet / 1,000 &times; supplies rate &times; cleanings per week.</li>
+  <li><b>Direct cost per week</b> = labor + supplies + equipment wear &times; visits + travel (visits &times; miles &times; cost per mile). <b>Per year</b> = that &times; weeks serviced.</li>
+  <li><b>Total annual cost</b> = direct cost + overhead % of direct cost + 12 &times; fixed monthly contract cost.</li>
+  <li><b>Monthly bid</b> = total annual cost / (1 &minus; target margin) / 12, never below the minimum monthly charge, rounded up to your step. <b>Annual bid</b> = 12 &times; monthly. <b>Per visit</b> = annual bid / (visits per week &times; weeks).</li>
+ </ul>
+ <p class="note">This is a planning aid, not pricing, tax, legal, insurance or accounting advice. Use your own numbers.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Need area types, periodic services and a bid you can send?</h2>
+ <p>The Quoteloom <b>Commercial Cleaning Bid Calculator</b> workbook (US$15) prices up to eight area types, each with its own production rate and supplies cost, adds periodic services such as floor strip and wax, carpet extraction or window washing, and shows price per visit, monthly bid, annual bid, total annual cost, profit, margin, a break-even monthly price and a margin what-if table. It also prints a customer-facing bid summary with no costs or margins and includes a bid tracker for win rate. Every default in the file is an editable example, and it includes a Quick Start PDF.</p>
+ <a class="cta" href="https://quoteloom.gumroad.com/l/GUMROAD_SLUG_PENDING" data-buy="commercial-cleaning-bid" data-buy-label="Get the workbook: US$15">Get the workbook: US$15</a>
+ <p>Cleaning homes instead? Try the <a href="/house-cleaning-price-calculator/">free house cleaning calculator</a> or read <a href="/guides/how-to-write-a-cleaning-quote/">how to write a cleaning quote</a>.</p>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Frequently asked questions</h2>
+ <div class="faq">
+  <h3>How do I bid a commercial cleaning contract?</h3>
+  <p>Measure the square feet in each area, decide how many times a week each area is cleaned, and turn that into cleaner-hours using your own production rate. Add non-productive time and paid drive time, multiply by your fully loaded labor cost, then add supplies, equipment wear, travel, overhead and any fixed contract costs. Divide the annual cost by one minus your target margin, then by 12 for a monthly bid.</p>
+  <h3>What production rate should I use?</h3>
+  <p>There is no rate on this page you should rely on. The 3,000 sq ft per cleaner-hour shown is an example placeholder so the math is visible. Production rates depend on the building, the equipment and your crew, so time your own work or use a published source you trust, and replace the example.</p>
+  <h3>Does this include overhead and profit?</h3>
+  <p>Yes, as percentages you enter. Overhead is a percentage of direct cost, and your target margin is a percentage of the price. The free calculator also lets you set a minimum monthly charge and round the monthly bid up to a step you choose.</p>
+  <h3>What does the spreadsheet add?</h3>
+  <p>The Quoteloom Commercial Cleaning Bid Calculator workbook lets you price up to eight area types with their own production rates and supplies, add periodic services such as floor strip and wax or carpet extraction, see a margin what-if table, print a customer-facing bid summary and log bids to see your win rate.</p>
+  <h3>Is this pricing advice?</h3>
+  <p>No. It is a planning aid that uses only the numbers you enter, plus clearly labeled example values. It is not a market survey, a bid recommendation, or tax, legal, insurance or accounting advice.</p>
+ </div>
+ <p class="note">Other free calculators: <a href="/house-cleaning-price-calculator/">house cleaning</a>, <a href="/window-cleaning-price-calculator/">window cleaning</a>, <a href="/pressure-washing-price-calculator/">pressure washing</a>, <a href="/gutter-cleaning-price-calculator/">gutter cleaning</a>, <a href="/lawn-care-price-calculator/">lawn care</a>, <a href="/quote-maker/">PDF quote maker</a>.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><p>&copy; 2026 Quoteloom · Contact: <a href="mailto:31xzskvm+quoteloom@mail.grokbot.com">31xzskvm+quoteloom@mail.grokbot.com</a> · <a href="/privacy.html">Privacy</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/es/" lang="es-MX" hreflang="es-MX">Español</a></p><p>Payments and file delivery are handled by Gumroad. Quoteloom tools are planning aids, not tax, legal, insurance or accounting advice.</p></div></footer>
+</body>
+</html>
